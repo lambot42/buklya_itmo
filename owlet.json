@@ -1,1536 +1,1536 @@
 [
-    {
-        "id": "e9414db80e9d3b72",
-        "type": "tab",
-        "label": "Owlet-agent",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "95e5dfaf7db9e1c0",
-        "type": "tcp out",
-        "z": "e9414db80e9d3b72",
-        "name": "",
-        "host": "chat-vectorizer-ml.sovcombank.group",
-        "port": "443",
-        "beserver": "client",
-        "base64": false,
-        "end": false,
-        "tls": "",
-        "x": 610,
-        "y": 1240,
-        "wires": []
-    },
-    {
-        "id": "89f2e080287544c1",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Проект ИИ Марафона \"Букля-агент(Smart Owlet)\"",
-        "info": "",
-        "x": 590,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "9c3f8d2a5dfd24ac",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Запуск шедулера",
-        "info": "",
-        "x": 110,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "f23a74339cb9369d",
-        "type": "inject",
-        "z": "e9414db80e9d3b72",
-        "name": "Запуск шедулера",
-        "props": [
-            {
-                "p": "delay",
-                "v": "15000",
-                "vt": "num"
-            },
-            {
-                "p": "lastEventId",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "3",
-        "topic": "",
-        "x": 350,
-        "y": 100,
-        "wires": [
-            [
-                "75b93d466dd062b4"
-            ]
-        ]
-    },
-    {
-        "id": "691e18e851faeff0",
-        "type": "inject",
-        "z": "e9414db80e9d3b72",
-        "name": "Остановить шедулер",
-        "props": [
-            {
-                "p": "reset",
-                "v": "true",
-                "vt": "bool"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "5",
-        "topic": "",
-        "x": 580,
-        "y": 100,
-        "wires": [
-            [
-                "75b93d466dd062b4"
-            ]
-        ]
-    },
-    {
-        "id": "e7057689b0c9457b",
-        "type": "template",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "Письмо",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "От:\tRT Notification Center (SUPR) <Supr.notification@rt.ru>\nОтправлено:\t18 апреля 2025 г. 12:18\nКому:\tnoc-info; vipservice@rt.ru\nТема:\tПлановые работы 00/25017696 для ПАО \"Совкомбанк\"\n\nУважаемые коллеги, ПАО \"Совкомбанк\", \n \n \nинформируем вас о проведении плановых работ № 00/25017696 на сети Ростелеком. \nОбщее временное окно работ: 22 апр. 2025 18:00 (МСК) – 22 апр. 2025 23:00 (МСК). \nИнформация о работах внешней организации: \n---  \n \n \nПровайдер: Ростелеком \nМесто проведения работ: Саха /Якутия/ Респ\nТип \nусл\nуги\nИде\nнти\nфик\nато\nр \nкан\nала \n/ \nНо\nмер \nсвяз\nи\nНо\nмер \nЗак\nаза\n№ \nДог\nово\nра\nАдр\nес \nусл\nуги\nОка\nзыв\nаем\nое \nвли\nяни\nе на \nусл\nугу\nДат\nа и \nвре\nмя \nвли\nяни\nя \n(М\nСК)\nИнт\nерв\nал \nвли\nяни\nя\nКол\n-во \nпре\nрыв\nани\nй в \nинт\nерв\nале\nНо\nмер \nзак\nаза \n(точ\nка 2 \nдля \nL2 \nVP\nN/V\nPLS \nкан\nало\nв)\nАдр\nес \n(точ\nка 2 \nдля \nL2 \nVP\nN/V\nPLS \nкан\nало\nв)\nInter\nnet\n\n24-\n376\n864\n14-\n14-\n16\n677\n000, \nРес\nпуб\nлик\nа \nСах\nа \n/Яку\nтия/\n, г. \nЯку\nтск, \nул. \nПоя\nрко\nва, \nд. \n20/1\nС \nкрат\nков\nрем\nенн\nым \nпре\nрыв\nани\nем \nсерв\nиса\n22 \nапр. \n202\n5 \n18:0\n0 \n(МС\nК) - \n22 \nапр. \n202\n5 \n23:0\n0 \n(МС\nК) \n59се\nк.\n1\n\n\nInter\nnet\n24-\n197\n739\n24-\n197\n739\n14-\n14-\n16\n677\n000, \nРес\nпуб\nлик\nа \nСах\nа \n/Яку\nтия/\n, г. \nЯку\nтск, \nпр-т \nЛен\nина, \nд. 3, \nкор\nп. 1\nС \nкрат\nков\nрем\nенн\nым \nпре\nрыв\nани\nем \nсерв\nиса\n22 \nапр. \n202\n5 \n18:0\n0 \n(МС\nК) - \n22 \nапр. \n202\n5 \n23:0\n0 \n(МС\nК) \n59се\nк.\n1\n\n\nInter\nnet\n22-\n182\n662\n24-\n230\n625\n14-\n14-\n16\n678\n000, \nРес\nпуб\nлик\nа \nСах\nа \n/Яку\nтия/\n, у. \nХан\nгала\nсски\nй, г. \nПок\nровс\nк, \nул. \nПри\nтузо\nва, \nд. \n33\nС \nкрат\nков\nрем\nенн\nым \nпре\nрыв\nани\nем \nсерв\nиса\n22 \nапр. \n202\n5 \n18:0\n0 \n(МС\nК) - \n22 \nапр. \n202\n5 \n23:0\n0 \n(МС\nК) \n59се\nк.\n1\n\n\n \n \nПриносим свои извинения за доставленные неудобства. \nОбращаем ваше внимание, что данное уведомление сгенерировано автоматически, \nпожалуйста не отвечайте на него. \n \n \nПо всем возникшим вопросам вы можете обратиться в Отдел обслуживания корпоративных и \nгосударственных заказчиков Корпоративного Центра ПАО «Ростелеком»: \ne-mail: vipservice@rt.ru; \nтел.: +7 (499) 999-8143\n",
-        "output": "str",
-        "x": 280,
-        "y": 1240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d38692b4c1fd7f4a",
-        "type": "debug",
-        "z": "e9414db80e9d3b72",
-        "name": "Вывод ошибок",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "error",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1020,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "df4043aeb2ed7a95",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Обработка  \\n письма",
-        "func": "function htmlToText(html) {\n    if (!html) return '';\n    \n    // Улучшенный парсер\n    return html\n        .replace(/<style[^>]*>.*?<\\/style>/gs, '')  // Удаляем стили\n        .replace(/<script[^>]*>.*?<\\/script>/gs, '') // Удаляем скрипты\n        .replace(/<br\\s*\\/?>/gi, '\\n')              // Переносы строк\n        .replace(/<\\/p>/gi, '\\n\\n')                 // Абзацы\n        .replace(/<[^>]+>/g, '')                    // Все остальные теги\n        .replace(/&nbsp;/g, ' ')                    // Спецсимволы\n        .replace(/\\s+/g, ' ')                       // Множественные пробелы\n        .trim();\n}\n\nmsg.email = {\n    from: msg.from || '',\n    subject: msg.topic || '(no subject)',\n    //html: msg.html || '',\n    body: htmlToText(msg.html)\n    //body: msg.html\n};\n\nif (!msg.email.body) {\n    node.warn(\"Empty email body after conversion\");\n    // Альтернатива: использовать текстовую версию, если есть\n    msg.email.body = msg.payload || \"[No content]\";\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 300,
-        "wires": [
-            [
-                "047914f46fbf3925"
-            ]
-        ]
-    },
-    {
-        "id": "49890c63b3ad6e29",
-        "type": "catch",
-        "z": "e9414db80e9d3b72",
-        "name": "Error Handle",
-        "scope": null,
-        "uncaught": false,
-        "x": 850,
-        "y": 540,
-        "wires": [
-            [
-                "d38692b4c1fd7f4a"
-            ]
-        ]
-    },
-    {
-        "id": "e970520d870c771d",
-        "type": "change",
-        "z": "e9414db80e9d3b72",
-        "name": "Параметры \\n для LLM",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload.model",
-                "pt": "msg",
-                "to": "google/gemma-3-27b-it",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload.max_completion_tokens",
-                "pt": "msg",
-                "to": "8192",
-                "tot": "num"
-            },
-            {
-                "t": "delete",
-                "p": "url",
-                "pt": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload.temperature",
-                "pt": "msg",
-                "to": "0.5",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "temperature",
-                "pt": "msg",
-                "to": "payload.temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 130,
-        "y": 420,
-        "wires": [
-            [
-                "054ab592d58e8c0c"
-            ]
-        ]
-    },
-    {
-        "id": "054ab592d58e8c0c",
-        "type": "OpenAI API",
-        "z": "e9414db80e9d3b72",
-        "name": "Запрос \\n в LLM",
-        "property": "payload",
-        "propertyType": "msg",
-        "service": "12fd667669176e37",
-        "method": "createChatCompletion",
-        "x": 280,
-        "y": 420,
-        "wires": [
-            [
-                "8d2e1aa833fed7ad"
-            ]
-        ]
-    },
-    {
-        "id": "9cccb2e2a5ebfbc7",
-        "type": "OpenAI API",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "Список моделей БЯМ",
-        "property": "payload",
-        "propertyType": "msg",
-        "service": "12fd667669176e37",
-        "method": "listModels",
-        "x": 320,
-        "y": 1300,
-        "wires": [
-            [
-                "2d55c5dd6b5b6033"
-            ]
-        ]
-    },
-    {
-        "id": "8e07dbb928ed10ec",
-        "type": "inject",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 1300,
-        "wires": [
-            [
-                "9cccb2e2a5ebfbc7"
-            ]
-        ]
-    },
-    {
-        "id": "2d55c5dd6b5b6033",
-        "type": "debug",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "List models LLM",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 1300,
-        "wires": []
-    },
-    {
-        "id": "65824028f89061d8",
-        "type": "e-mail in",
-        "z": "e9414db80e9d3b72",
-        "name": "Получаем  \\n  почту",
-        "protocol": "IMAP",
-        "server": "mail.sovcombank.group",
-        "useSSL": true,
-        "autotls": "required",
-        "port": "993",
-        "authtype": "BASIC",
-        "saslformat": true,
-        "token": "oauth2Response.access_token",
-        "box": "INBOX",
-        "disposition": "Read",
-        "criteria": "UNSEEN",
-        "repeat": "60",
-        "fetch": "trigger",
-        "inputs": 1,
-        "x": 120,
-        "y": 220,
-        "wires": [
-            [
-                "5aa9cbf9c0594c62"
-            ]
-        ]
-    },
-    {
-        "id": "1904cce35a8723e4",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Задаем переменные \\n промта",
-        "func": "// В первой function-ноде при инициализации (или в OnStart)\ncontext.global.templates = {\n  promptTemplateSys:\n    `Ты - AI-ассистент по обработке инцидентов в ИТ-инфраструктуре. Твои задачи:\n  1. Анализ технических уведомлений от поставщиков\n  2. Классификация событий (инциденты/работы/отмены)\n  3. Оценка рисков по 3-балльной шкале (1-minor, 3-critical)\n  4. Генерация JSON-отчетов в двух форматах:\n    - Полный (для CRM)\n    - Краткий (для чат-ботов)\n  5. Формирование рекомендаций с пометкой \"ИИ рекомендации\" - обязательный пункт\n\n  Правила обработки:\n  - Поставщик определяется по домену → тексту → подписи\n  - Даты всегда в формате DD.MM.YYYY HH:MM\n  - Наименование вендора должно быть на русском языке, все буквы строчные, убраны лишние кавычки, скобки и приставки, например ООО, АО и т.д.\n  - Неизвестные данные не показываются\n  - json должен быть корректным для распарсивания, с корректным экранированием и валидацией\n    \n  `,\n  promptTemplateAssis: null,\n\n  promptTemplate: `\nОбработай письмо и верни ТОЛЬКО краткий(shortTemplate) JSON-шаблон \n(json должен быть корректным для распарсивания, с корректным экранированием и валидацией)\nСтруктура:\n\n1. Определи поставщика (@domain → vendor)\n2. Извлеки ключевые данные:\n   - Тип уведомления (auto-classify)\n   - Локации (все адреса через \\n)\n   - Сроки (start/end)\n   - ID сервисов\n3. Оцени риски (1-3)\n4. Сформируй message в формате:\n\"\"\"\n*Поставщик услуги*: {vendor}\n*Адрес*: {addresses}\n*ID*: {service_id} \n*Тип*: {service_type}\n*Период*: {start} - {end} \n*Перерыв*: {downtime} \n*Дополнительно* (то, что не вошло в пункты выше)\n\n*Риск*: {risk_level}/3\n*ИИ рекомендации*:\n1) {action1}\n2) {action2}\nи т.д.\n\"\"\"\n\nДанные для анализа:\n{emailText}\n\nШаблон full:\n{fullTemplate}\n\nШаблон short:\n{shortTemplate}\n`,\n\n  fullTemplate: {\n  \"alert\": {\n    \"meta\": {\n      \"source_type\": \"\",\n      \"original_format\": \"\",\n      \"processing_time\": \"\"\n    },\n    \"header\": {\n      \"id\": \"\",\n      \"sender\": \"\",\n      \"recipients\": [],\n      \"subject\": \"\",\n      \"date_sent\": \"\",\n      \"priority\": \"\",\n      \"notification_type\": \"\"\n    },\n    \"content\": {\n      \"event_type\": \"\",\n      \"status\": \"\",\n      \"description\": \"\",\n      \"schedule\": {\n        \"planned_start\": \"\",\n        \"planned_end\": \"\",\n        \"actual_start\": \"\",\n        \"actual_end\": \"\"\n      },\n      \"location\": {\n        \"address\": \"\",\n        \"city\": \"\",\n        \"site\": \"\",\n        \"coordinates\": \"\"\n      },\n      \"affected_services\": [\n        {\n          \"service_id\": \"\",\n          \"service_type\": \"\",\n          \"impact_level\": \"\"\n        }\n      ],\n      \"work_details\": {\n        \"type\": \"\",\n        \"method\": \"\",\n        \"contractor\": \"\"\n      },\n      \"risks\": {\n        \"service_impact\": \"\",\n        \"redundancy_impact\": \"\",\n        \"downtime_probability\": \"\"\n      }\n    },\n    \"actions\": {\n      \"required\": \"\",\n      \"deadline\": \"\",\n      \"confirmation_needed\": \"\"\n    },\n    \"contacts\": {\n      \"primary\": {\n        \"department\": \"\",\n        \"phone\": \"\",\n        \"email\": \"\"\n      },\n      \"secondary\": []\n    },\n    \"references\": {\n      \"ticket_id\": \"\",\n      \"external_link\": \"\",\n      \"related_orders\": [],\n      \"attachments\": []\n    }\n  }\n},\n\n  shortTemplate: {\n  \"alert\": {\n    \"vendor\": \"\",    \n    \"title\": \"\",\n    \"message\": \"\",\n    \"priority\": \"\",\n    \"datetime\": \"\",\n    \"type\": \"\",\n    \"actions\": [],\n    \"ai_analysis\": {\n      \"risk_assessment\": {\n        \"service_impact\": 0,\n        \"redundancy_impact\": 0,\n        \"financial_risk\": 0\n      },\n      \"recommendations\": [],\n      \"key_notes\": []\n    }\n  }\n}\n};\n\n\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 160,
-        "y": 300,
-        "wires": [
-            [
-                "df4043aeb2ed7a95"
-            ]
-        ]
-    },
-    {
-        "id": "5aa9cbf9c0594c62",
-        "type": "switch",
-        "z": "e9414db80e9d3b72",
-        "name": "Проверка \\n письма",
-        "property": "from",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nnull"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 260,
-        "y": 220,
-        "wires": [
-            [
-                "7b120a4b87ad37bc"
-            ]
-        ]
-    },
-    {
-        "id": "047914f46fbf3925",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Подготовка  \\n промта",
-        "func": "delete msg.payload;\nmsg.payload = msg.payload || {};\nmsg.payload.messages = msg.payload.messages || {};\n\n// Получаем шаблоны из глобального контекста\nconst templates = context.global.templates;\n\n//node.warn(templates.promptTemplate); // Проверьте наличие шаблона\n//node.warn(msg.email.body); // Должен возвращать строку\n\n// Формируем финальный промт\nmsg.payload.messages = [\n    {role: \"system\", content: templates.promptTemplateSys}, \n    {role: \"user\", \n      content : templates.promptTemplate\n      .replace(\"{emailText}\", msg.email.subject + \" \" + msg.email.body)\n      .replace(\"{fullTemplate}\", JSON.stringify(templates.fullTemplate, null, 2))\n      .replace(\"{shortTemplate}\", JSON.stringify(templates.shortTemplate, null, 2))\n      //+ \"Ответ предоставь только в виде short Template\"\n      }\n    ,{role: \"assistant\", content: templates.promptTemplateAssis}\n]\nmsg.promt_text_orig = msg.payload.messages[0].content + ' \\n ' + msg.payload.messages[1].content;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 300,
-        "wires": [
-            [
-                "441d3196dc26d572"
-            ]
-        ]
-    },
-    {
-        "id": "2efa5b90c812894b",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Получение почты и подготовка промта",
-        "info": "",
-        "x": 180,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "6f339ca98a793144",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Готовим запрос к AI и вызываем",
-        "info": "",
-        "x": 160,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "5717f6c718b3eb3c",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "name": "LLM link in",
-        "links": [
-            "441d3196dc26d572",
-            "ac50b4925271335e"
-        ],
-        "x": 35,
-        "y": 420,
-        "wires": [
-            [
-                "e970520d870c771d"
-            ]
-        ]
-    },
-    {
-        "id": "7d4411410bb79c3e",
-        "type": "link out",
-        "z": "e9414db80e9d3b72",
-        "name": "Email out 1",
-        "mode": "link",
-        "links": [
-            "967d353bec0ad6d5"
-        ],
-        "x": 1105,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "49e362123b749ed4",
-        "type": "inject",
-        "z": "e9414db80e9d3b72",
-        "name": "Еденичный вызов",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 810,
-        "y": 100,
-        "wires": [
-            [
-                "75b93d466dd062b4"
-            ]
-        ]
-    },
-    {
-        "id": "8d2e1aa833fed7ad",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Обработка \\n данных",
-        "func": "const responseText = msg.payload.choices[0].message.content;\nlet jsonData = {};\n\ntry {\n    const jsonMatch = responseText.match(/```json([\\s\\S]*?)```|Ответ в формате JSON.*?(\\{[\\s\\S]*\\})/i);\n    const jsonString = jsonMatch ? (jsonMatch[1] || jsonMatch[2]) : responseText;\n    jsonData = JSON.parse(jsonString);\n    \n    msg.parsed_data = jsonData;\n    msg.promt_id = msg.payload.id;\n    msg.topicText = jsonData.alert?.title;\n    msg.messageText = jsonData.alert?.message;\n    msg.owlet_id_orig = jsonData.alert?.type||null;\n\n} catch (e) {\n    msg.error = {\n        message: \"Ошибка парсинга JSON\",\n        error: e.toString(),\n        original_text: responseText\n    };\n    node.error(\"Ошибка: \" + e.message, msg);\n}\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 420,
-        "wires": [
-            [
-                "7aaafde957cd3a2b"
-            ]
-        ]
-    },
-    {
-        "id": "f87e871aa3d8010c",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Отправка сообщения в VK Teams",
-        "info": "",
-        "x": 160,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "9ef0950559f9e95e",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Переменные  \\n для тимс ",
-        "func": "msg.userId = 1000001133;\nmsg.chatId = 'buklya_agent_alerts';\n\nmsg.url = \"https://api.teams.sovcombank.ru/bot/v1/messages/sendText?\";\nlet tokenLoc = '002.4142507988.1314244064:1000001133';\n\nlet teams_idLoc= msg.teams_id||null; //'7509592043216175258'||null;\n\nlet textLoc = `*${msg.topicText}*  \\n\\n${msg.messageText}` //+` \\n temperature: ` + msg.temperature;\n\nmsg.payload = { token: tokenLoc, chatId: msg.chatId, text: textLoc, parseMode: \"MarkdownV2\", replyMsgId: teams_idLoc};\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 140,
-        "y": 540,
-        "wires": [
-            [
-                "c888a56ee56f3bc9"
-            ]
-        ]
-    },
-    {
-        "id": "07a353824b927014",
-        "type": "link out",
-        "z": "e9414db80e9d3b72",
-        "name": "LLM out",
-        "mode": "link",
-        "links": [
-            "5c8bad541677833a",
-            "5ee42f8b90dd48f1",
-            "76091a03bf73bd41"
-        ],
-        "x": 1155,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "76091a03bf73bd41",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "name": "Teams link in",
-        "links": [
-            "07a353824b927014"
-        ],
-        "x": 35,
-        "y": 540,
-        "wires": [
-            [
-                "9ef0950559f9e95e"
-            ]
-        ]
-    },
-    {
-        "id": "4c9811bf69422a3e",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Обработка ошибок в консоль",
-        "info": "",
-        "x": 900,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "c888a56ee56f3bc9",
-        "type": "http request",
-        "z": "e9414db80e9d3b72",
-        "name": "Отправляем  \\n сообщение в teams",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "query",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "9cf3f2a242cf6636",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 340,
-        "y": 540,
-        "wires": [
-            [
-                "8541c2ffdd1cf2ac"
-            ]
-        ]
-    },
-    {
-        "id": "3363e0abe3311989",
-        "type": "e-mail",
-        "z": "e9414db80e9d3b72",
-        "server": "exchange.sovcombank.group",
-        "port": "587",
-        "authtype": "BASIC",
-        "saslformat": true,
-        "token": "oauth2Response.access_token",
-        "secure": false,
-        "tls": false,
-        "name": "",
-        "dname": "Отправить почту",
-        "x": 390,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "df87786856fd5cd1",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Переменные для почты",
-        "func": "// Основные параметры\nmsg.topic = msg.topicText;\nmsg.payload = msg.messageText.replace(/\\*/g, '');\n\nif (!msg.payload) {\n    msg.text = msg.messageText;\n    }\n\n// Адреса\nmsg.from = \"owlet-collector@sovcombank.ru\";  // Должен совпадать с авторизацией SMTP\nmsg.to = \"owlet-collector@sovcombank.ru\"\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 170,
-        "y": 640,
-        "wires": [
-            [
-                "3363e0abe3311989"
-            ]
-        ]
-    },
-    {
-        "id": "23f8f1b8f65e02aa",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Отправка сообщения в почту",
-        "info": "",
-        "x": 140,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "5ee42f8b90dd48f1",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "Mail link in",
-        "links": [
-            "07a353824b927014"
-        ],
-        "x": 35,
-        "y": 640,
-        "wires": [
-            [
-                "df87786856fd5cd1"
-            ]
-        ]
-    },
-    {
-        "id": "9d1c305c92bacb3e",
-        "type": "debug",
-        "z": "e9414db80e9d3b72",
-        "name": "debug 2",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "b467ddee66339b5c",
-        "type": "http request",
-        "z": "e9414db80e9d3b72",
-        "name": "Запрос к \\n  NetBox",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [
-            {
-                "keyType": "other",
-                "keyValue": "Authorization",
-                "valueType": "other",
-                "valueValue": "Token d3f6b1a851e1600097d04d3e3db0b192b3374830"
-            },
-            {
-                "keyType": "other",
-                "keyValue": "Accept",
-                "valueType": "other",
-                "valueValue": "application/json"
-            }
-        ],
-        "x": 820,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1aaabe0109d4d327",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Запрос в NetBox",
-        "info": "",
-        "x": 640,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "d07182d99f6c98e6",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Параметры \\n для NetBox",
-        "func": "msg = msg || {};\nmsg.payload = msg.payload || \"\";\n\nmsg.rejectUnauthorized = false;\n\nmsg.url = \"https://netbox.sovcombank.group/api/circuits/providers/\";\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 660,
-        "wires": [
-            [
-                "b467ddee66339b5c"
-            ]
-        ]
-    },
-    {
-        "id": "6a092a4b3255b6f6",
-        "type": "debug",
-        "z": "e9414db80e9d3b72",
-        "name": "debug 3",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "teams_id",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "ad17d8355f9c9580",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Работа с Qdrant",
-        "info": "",
-        "x": 100,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "842fdb1345b57bb4",
-        "type": "rag-vectordb-qdrant",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "rag-vectordb-qdrant",
-        "localSavePath": "./",
-        "remoteUrl": "",
-        "remoteApiKey": "",
-        "x": 110,
-        "y": 800,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "b2c089c4614c9c8d",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Работа с Monq",
-        "info": "",
-        "x": 100,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "add2e764a3f025e0",
-        "type": "http request",
-        "z": "e9414db80e9d3b72",
-        "name": "Отправка в Monq",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 370,
-        "y": 720,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "492d91987e6e385f",
-        "type": "sqlite",
-        "z": "e9414db80e9d3b72",
-        "mydb": "352f0cee1c53409e",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "Owlet DB",
-        "x": 1160,
-        "y": 1100,
-        "wires": [
-            [
-                "b4cb79adc2559283"
-            ]
-        ]
-    },
-    {
-        "id": "6363c9b905cf52e3",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Работа с БД",
-        "info": "",
-        "x": 870,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "d1cd154607fbe026",
-        "type": "inject",
-        "z": "e9414db80e9d3b72",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 920,
-        "y": 1160,
-        "wires": [
-            [
-                "6c70735bf86a6247"
-            ]
-        ]
-    },
-    {
-        "id": "6c70735bf86a6247",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "function 1",
-        "func": "msg.topic = \"select * from llm_interactions;\"; \n\n//msg.topic = \"PRAGMA table_info(llm_interactions);\"; // Получить структуру таблицы\n\n/*\nmsg.topic = `\nCREATE TABLE IF NOT EXISTS llm_interactions (\n    owlet_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    vendor TEXT(255) NOT NULL,\n    promt_id TEXT NOT NULL,\n    promt_text_orig TEXT NULL,  \n    promt_responce TEXT NULL,   \n    teams_id TEXT NULL,\n    mail_id TEXT NULL,\n    monq_id TEXT NULL,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP\n);\n`; \n*/\n\n//msg.topic = `select teams_id from llm_interactions where vendor = \"билайн бизнес\"`; \n\n//msg.topic = \"delete from llm_interactions;\"; \n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1000,
-        "y": 1100,
-        "wires": [
-            [
-                "492d91987e6e385f"
-            ]
-        ]
-    },
-    {
-        "id": "b4cb79adc2559283",
-        "type": "debug",
-        "z": "e9414db80e9d3b72",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1140,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "1374383f047dca87",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Сохраняем в БД",
-        "func": "// Формируем данные\nconst data = {\n    vendor: msg.vendor || null,\n    promt_id: msg.promt_id || null,\n    promt_responce: msg.parsed_data || null,\n    promt_text_orig: msg.promt_text_orig || null\n};\n\n// SQL-запрос с плейсхолдерами ?\nmsg.topic = `\n    INSERT INTO llm_interactions (\n        vendor, \n        promt_id, \n        promt_responce,\n        promt_text_orig\n    ) VALUES (\n        $vendor, \n        $promt_id, \n        $promt_responce,\n        $promt_text_orig)\n    RETURNING owlet_id;\n`;\n\n// Параметры в виде массива (порядок важен!)\nmsg.payload = [\n    data.vendor,\n    data.promt_id, \n    data.promt_responce,\n    data.promt_text_orig\n];\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 440,
-        "wires": [
-            [
-                "a040d3cd802d3d60"
-            ]
-        ]
-    },
-    {
-        "id": "a040d3cd802d3d60",
-        "type": "sqlite",
-        "z": "e9414db80e9d3b72",
-        "mydb": "352f0cee1c53409e",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "Owlet DB",
-        "x": 940,
-        "y": 440,
-        "wires": [
-            [
-                "6c8c35293d917bb5"
-            ]
-        ]
-    },
-    {
-        "id": "4d89c0326cd6b612",
-        "type": "debug",
-        "z": "e9414db80e9d3b72",
-        "name": "debug 5",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "6c8c35293d917bb5",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "set id",
-        "func": "msg.owlet_id = msg.payload[0].owlet_id;\n\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1070,
-        "y": 440,
-        "wires": [
-            [
-                "07a353824b927014"
-            ]
-        ]
-    },
-    {
-        "id": "8541c2ffdd1cf2ac",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Сохраняем \\n в БД",
-        "func": "msg.msgId = msg.payload.msgId;\n// Формируем данные\nconst data = {\n    teams_id : msg.msgId || null,\n    owlet_id : msg.owlet_id || null    \n};\n\n// SQL-запрос с именованными параметрами\nmsg.topic = `\n    UPDATE llm_interactions \n    SET teams_id = $teams_id\n    WHERE owlet_id = $owlet_id;\n`;\n\n// Параметры в виде ОБЪЕКТА (НЕ массива!)\nmsg.payload = [\n    data.teams_id,\n    data.owlet_id\n];\n\n// Добавляем логирование для отладки\n//node.warn(data.owlet_id);\n//node.warn(msg.msgId);\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 540,
-        "wires": [
-            [
-                "85a661943cebf69a"
-            ]
-        ]
-    },
-    {
-        "id": "85a661943cebf69a",
-        "type": "sqlite",
-        "z": "e9414db80e9d3b72",
-        "mydb": "352f0cee1c53409e",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "Owlet DB",
-        "x": 680,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d17a4083ab8d3f72",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Задаем параметры",
-        "func": "msg.url = \"https://monq.sovcombank.group/api/public/cl/v1/stream-data?streamKey=115bb7ee-1fb3-43e7-b0d7-2bf82b11aa09\";\n\n// Опциональные заголовки\nmsg.headers = {\n    \"Accept\": \"application/json\",    \n    \"User-Agent\": \"Owlet Bot\"\n};\nmsg.rejectUnauthorized = false;\n\n// Добавьте таймаут\nmsg.timeout = 30000; // 30 секунд\n\nmsg.payload = msg.jsonText;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 160,
-        "y": 720,
-        "wires": [
-            [
-                "add2e764a3f025e0"
-            ]
-        ]
-    },
-    {
-        "id": "5c8bad541677833a",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "name": "Monq link in",
-        "links": [
-            "07a353824b927014"
-        ],
-        "x": 35,
-        "y": 720,
-        "wires": [
-            [
-                "d17a4083ab8d3f72"
-            ]
-        ]
-    },
-    {
-        "id": "75b93d466dd062b4",
-        "type": "link out",
-        "z": "e9414db80e9d3b72",
-        "name": "Start link out",
-        "mode": "link",
-        "links": [
-            "d0f0d83e02592c24"
-        ],
-        "x": 935,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "d0f0d83e02592c24",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "name": "Email link in",
-        "links": [
-            "75b93d466dd062b4"
-        ],
-        "x": 35,
-        "y": 220,
-        "wires": [
-            [
-                "65824028f89061d8"
-            ]
-        ]
-    },
-    {
-        "id": "7b120a4b87ad37bc",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Ищем  \\n вендора",
-        "func": "// В первой function-ноде при инициализации (или в OnStart)\ncontext.global.templates = {\n  promptTemplateSys:\n    `Ты - AI-ассистент по обработке писем в ИТ-инфраструктуре. \n  Твои задачи:\n  1. проанализировать и определить поставщика услуги(вендора)\n  2. Вернуть ответ в json формате\n  Правила обработки:\n  - Поставщик определяется по домену → тексту → подписи\n  - Даты всегда в формате DD.MM.YYYY HH:MM\n  - Наименование вендора должно быть на русском языке, все буквы строчные, убраны лишние кавычки, скобки и приставки, например ООО, АО и т.д.\n  - json должен быть корректным для распарсивания, с корректным экранированием и валидацией\n   \n  `,\n  promptTemplate: `\nОбработай письмо и верни ТОЛЬКО JSON-шаблон \n(json должен быть корректным для распарсивания, с корректным экранированием и валидацией)\n{\n  \"vendor\": \"\", \n}\n\nДанные для анализа:\n{emailText}\n`\n}\n\nfunction htmlToText(html) {\n    if (!html) return '';    \n    // Улучшенный парсер\n    return html\n        .replace(/<style[^>]*>.*?<\\/style>/gs, '')  // Удаляем стили\n        .replace(/<script[^>]*>.*?<\\/script>/gs, '') // Удаляем скрипты\n        .replace(/<br\\s*\\/?>/gi, '\\n')              // Переносы строк\n        .replace(/<\\/p>/gi, '\\n\\n')                 // Абзацы\n        .replace(/<[^>]+>/g, '')                    // Все остальные теги\n        .replace(/&nbsp;/g, ' ')                    // Спецсимволы\n        .replace(/\\s+/g, ' ')                       // Множественные пробелы\n        .trim();\n}\n\nmsg.email = {\n    body: htmlToText(msg.html),\n    subject: msg.topic || '(no subject)'\n};\n\nif (!msg.email.body) {\n    // Альтернатива: использовать текстовую версию, если есть    \n    msg.email.body = msg.payload || \"[No content]\";\n}\n\ndelete msg.payload;\nmsg.payload = msg.payload || {};\nmsg.payload.messages = msg.payload.messages || {};\n\n// Получаем шаблоны из глобального контекста\nconst templates = context.global.templates;\n\n// Формируем финальный промт\nmsg.payload.messages = [\n    {role: \"system\", content: templates.promptTemplateSys}, \n    {role: \"user\",  content : templates.promptTemplate.replace(\"{emailText}\", msg.email.subject + \" \" + msg.email.body)}    \n]\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 220,
-        "wires": [
-            [
-                "26def5bceae43bab"
-            ]
-        ]
-    },
-    {
-        "id": "48c43fe3cc4374b5",
-        "type": "sqlite",
-        "z": "e9414db80e9d3b72",
-        "mydb": "352f0cee1c53409e",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "Owlet DB",
-        "x": 1260,
-        "y": 200,
-        "wires": [
-            [
-                "a0be7c424ca0e919"
-            ]
-        ]
-    },
-    {
-        "id": "26def5bceae43bab",
-        "type": "change",
-        "z": "e9414db80e9d3b72",
-        "name": "Параметры \\n для LLM",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload.model",
-                "pt": "msg",
-                "to": "google/gemma-3-27b-it",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload.max_completion_tokens",
-                "pt": "msg",
-                "to": "8192",
-                "tot": "num"
-            },
-            {
-                "t": "delete",
-                "p": "url",
-                "pt": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload.temperature",
-                "pt": "msg",
-                "to": "0.3",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 550,
-        "y": 220,
-        "wires": [
-            [
-                "5a63e3cd86bcc75f"
-            ]
-        ]
-    },
-    {
-        "id": "5a63e3cd86bcc75f",
-        "type": "OpenAI API",
-        "z": "e9414db80e9d3b72",
-        "name": "LLM",
-        "property": "payload",
-        "propertyType": "msg",
-        "service": "12fd667669176e37",
-        "method": "createChatCompletion",
-        "x": 690,
-        "y": 220,
-        "wires": [
-            [
-                "0d418a34ee9305d6"
-            ]
-        ]
-    },
-    {
-        "id": "0d418a34ee9305d6",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Ищем \\n совпадения",
-        "func": "const responseText = msg.payload.choices[0].message.content;\nlet jsonData = {};\n\n// Ищем JSON между ```json и ``` или после \"Ответ в формате JSON:\"\nconst jsonMatch = responseText.match(/```json([\\s\\S]*?)```|Ответ в формате JSON.*?(\\{[\\s\\S]*\\})/i);\nconst jsonString = jsonMatch ? (jsonMatch[1] || jsonMatch[2]) : responseText;\n\n// Парсим JSON\njsonData = JSON.parse(jsonString);\n   \n// Сохраняем результат\nmsg.payload = {                \n    vendor: jsonData.vendor || null,                \n};\nmsg.vendor = msg.payload.vendor;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 220,
-        "wires": [
-            [
-                "8fbc597fcd2f964c"
-            ]
-        ]
-    },
-    {
-        "id": "8fbc597fcd2f964c",
-        "type": "switch",
-        "z": "e9414db80e9d3b72",
-        "name": "Проверяем \\n вендора",
-        "property": "vendor",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nnull"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 990,
-        "y": 220,
-        "wires": [
-            [
-                "5c32fabcdf980dde"
-            ],
-            [
-                "7d4411410bb79c3e"
-            ]
-        ]
-    },
-    {
-        "id": "5c32fabcdf980dde",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "SQL",
-        "func": "const data = {\n    vendor: msg.vendor || null,\n};\n\nmsg.topic = `\nselect owlet_id, promt_id, promt_text_orig, promt_responce\nfrom llm_interactions\nwhere LOWER(vendor) = LOWER($vendor)\norder by owlet_id DESC\nLIMIT 3;\n`; \n\nmsg.payload = [\n    data.vendor\n];\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1130,
-        "y": 200,
-        "wires": [
-            [
-                "48c43fe3cc4374b5"
-            ]
-        ]
-    },
-    {
-        "id": "967d353bec0ad6d5",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "name": "Promt link in",
-        "links": [
-            "7d4411410bb79c3e"
-        ],
-        "x": 35,
-        "y": 300,
-        "wires": [
-            [
-                "1904cce35a8723e4"
-            ]
-        ]
-    },
-    {
-        "id": "e294664249887f95",
-        "type": "link out",
-        "z": "e9414db80e9d3b72",
-        "name": "Cond link out",
-        "mode": "link",
-        "links": [
-            "9fa1ab349d9eac85"
-        ],
-        "x": 1365,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "a0be7c424ca0e919",
-        "type": "switch",
-        "z": "e9414db80e9d3b72",
-        "name": "Ищем совпадение",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "empty"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1230,
-        "y": 240,
-        "wires": [
-            [
-                "7d4411410bb79c3e"
-            ],
-            [
-                "e294664249887f95"
-            ]
-        ]
-    },
-    {
-        "id": "89ca9ab839d308c8",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Задаем переменные \\n промта с историей",
-        "func": "msg.promt_assist = msg.payload.map(item => {\n    return '====== Запись ======\\n' +\n           `owlet_id: ${item.owlet_id}\\n` +\n           //`${item.promt_text_orig}\\n` +\n           `${item.promt_responce}\\n` +\n           '====================';\n}).join('\\n\\n');\n\n// В первой function-ноде при инициализации (или в OnStart)\ncontext.global.templates = {\n  promptTemplateSys:\n    `Ты - AI-ассистент по обработке инцидентов в ИТ-инфраструктуре. Твои задачи:\n  1. Анализ технических уведомлений от поставщиков\n  2. Классификация событий (инциденты/работы/отмены)\n  3. Оценка рисков по 3-балльной шкале (1-minor, 3-critical)\n  4. Генерация JSON-отчетов в двух форматах:\n    - Полный (для CRM)\n    - Краткий (для чат-ботов)\n  5. Формирование рекомендаций с пометкой \"ИИ рекомендации\" - обязательный пункт\n\n  Правила обработки:\n  - Поставщик определяется по домену → тексту → подписи\n  - Даты всегда в формате DD.MM.YYYY HH:MM\n  - Наименование вендора должно быть на русском языке, все буквы строчные, убраны лишние кавычки, скобки и приставки, например ООО, АО и т.д.\n  - Неизвестные данные не показываются\n  - json должен быть корректным для распарсивания, с корректным экранированием и валидацией\n    \n  `,\n  promptTemplateAssis: `\n  {promt_assist}\n  \n  `,\n\n  promptTemplate: ` \nОбработай письмо и верни ТОЛЬКО краткий(shortTemplate) JSON-шаблон \n(json должен быть корректным для распарсивания, с корректным экранированием и валидацией)\n\nПроверь по истории вендора, если отмена или повтор события и новое письмо можно связать с определенным событием, то \nзаполни тег {type} значением {owlet_id} той записи, которой соответствует отмена или повтор\nесли найдено в искомом найдено более, чем чем одна запись owlet_id, то верни максимальную\nЕсли новое письмо не связано ни с какими либо предыдущими работами \nто тег {type} нужно заполнить значением 'null'\n\nСтруктура:\n\n1. Определи поставщика (@domain → vendor)\n2. Извлеки ключевые данные:\n   - Тип уведомления (auto-classify)\n   - Локации (все адреса через \\n)\n   - Сроки (start/end)\n   - ID сервисов\n3. Оцени риски (1-3)\n4. Сформируй message в формате:\n\"\"\"\n*Поставщик услуги*: {vendor}\n*Адрес*: {addresses}\n*ID*: {service_id} \n*Тип*: {service_type}\n*Период*: {start} - {end} \n*Перерыв*: {downtime} \n*Дополнительно* (то, что не вошло в пункты выше)\n\n*Риск*: {risk_level}/3\n*ИИ рекомендации*:\n1) {action1}\n2) {action2}\nи т.д.\n\"\"\"\n\nДанные для анализа:\n{emailText}\n\nШаблон full:\n{fullTemplate}\n\nШаблон short:\n{shortTemplate}\n`,\n\n  fullTemplate: {\n  \"alert\": {\n    \"meta\": {\n      \"source_type\": \"\",\n      \"original_format\": \"\",\n      \"processing_time\": \"\"\n    },\n    \"header\": {\n      \"id\": \"\",\n      \"sender\": \"\",\n      \"recipients\": [],\n      \"subject\": \"\",\n      \"date_sent\": \"\",\n      \"priority\": \"\",\n      \"notification_type\": \"\"\n    },\n    \"content\": {\n      \"event_type\": \"\",\n      \"status\": \"\",\n      \"description\": \"\",\n      \"schedule\": {\n        \"planned_start\": \"\",\n        \"planned_end\": \"\",\n        \"actual_start\": \"\",\n        \"actual_end\": \"\"\n      },\n      \"location\": {\n        \"address\": \"\",\n        \"city\": \"\",\n        \"site\": \"\",\n        \"coordinates\": \"\"\n      },\n      \"affected_services\": [\n        {\n          \"service_id\": \"\",\n          \"service_type\": \"\",\n          \"impact_level\": \"\"\n        }\n      ],\n      \"work_details\": {\n        \"type\": \"\",\n        \"method\": \"\",\n        \"contractor\": \"\"\n      },\n      \"risks\": {\n        \"service_impact\": \"\",\n        \"redundancy_impact\": \"\",\n        \"downtime_probability\": \"\"\n      }\n    },\n    \"actions\": {\n      \"required\": \"\",\n      \"deadline\": \"\",\n      \"confirmation_needed\": \"\"\n    },\n    \"contacts\": {\n      \"primary\": {\n        \"department\": \"\",\n        \"phone\": \"\",\n        \"email\": \"\"\n      },\n      \"secondary\": []\n    },\n    \"references\": {\n      \"ticket_id\": \"\",\n      \"external_link\": \"\",\n      \"related_orders\": [],\n      \"attachments\": []\n    }\n  }\n},\n\n  shortTemplate: {\n  \"alert\": {\n    \"vendor\": \"\",    \n    \"title\": \"\",\n    \"message\": \"\",\n    \"priority\": \"\",\n    \"datetime\": \"\",\n    \"type\": \"\",\n    \"actions\": [],\n    \"ai_analysis\": {\n      \"risk_assessment\": {\n        \"service_impact\": 0,\n        \"redundancy_impact\": 0,\n        \"financial_risk\": 0\n      },\n      \"recommendations\": [],\n      \"key_notes\": []\n    }\n  }\n}\n};\n\n\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 800,
-        "y": 300,
-        "wires": [
-            [
-                "caa8e188b8676a7c"
-            ]
-        ]
-    },
-    {
-        "id": "441d3196dc26d572",
-        "type": "link out",
-        "z": "e9414db80e9d3b72",
-        "name": "Promt link out",
-        "mode": "link",
-        "links": [
-            "5717f6c718b3eb3c"
-        ],
-        "x": 615,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "9fa1ab349d9eac85",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "name": "Cond link in",
-        "links": [
-            "e294664249887f95"
-        ],
-        "x": 665,
-        "y": 300,
-        "wires": [
-            [
-                "89ca9ab839d308c8"
-            ]
-        ]
-    },
-    {
-        "id": "caa8e188b8676a7c",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Обработка  \\n письма",
-        "func": "function htmlToText(html) {\n    if (!html) return '';\n    \n    // Улучшенный парсер\n    return html\n        .replace(/<style[^>]*>.*?<\\/style>/gs, '')  // Удаляем стили\n        .replace(/<script[^>]*>.*?<\\/script>/gs, '') // Удаляем скрипты\n        .replace(/<br\\s*\\/?>/gi, '\\n')              // Переносы строк\n        .replace(/<\\/p>/gi, '\\n\\n')                 // Абзацы\n        .replace(/<[^>]+>/g, '')                    // Все остальные теги\n        .replace(/&nbsp;/g, ' ')                    // Спецсимволы\n        .replace(/\\s+/g, ' ')                       // Множественные пробелы\n        .trim();\n}\n\nmsg.email = {\n    from: msg.from || '',\n    subject: msg.topic || '(no subject)',\n    //html: msg.html || '',\n    body: htmlToText(msg.html)\n    //body: msg.html\n};\n\n\nif (!msg.email.body) {\n    node.warn(\"Empty email body after conversion\");\n    // Альтернатива: использовать текстовую версию, если есть\n    msg.email.body = msg.payload || \"[No content]\";\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 990,
-        "y": 300,
-        "wires": [
-            [
-                "2e7b867008de0ab6"
-            ]
-        ]
-    },
-    {
-        "id": "2e7b867008de0ab6",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Подготовка  \\n промта",
-        "func": "delete msg.payload;\nmsg.payload = msg.payload || {};\nmsg.payload.messages = msg.payload.messages || {};\n\n// Получаем шаблоны из глобального контекста\nconst templates = context.global.templates;\n\n//node.warn(templates.promptTemplate); // Проверьте наличие шаблона\n//node.warn(msg.email.body); // Должен возвращать строку\n\n// Формируем финальный промт\nmsg.payload.messages = [\n    {role: \"system\", content: templates.promptTemplateSys}, \n    {role: \"user\", \n      content : templates.promptTemplate\n      .replace(\"{emailText}\", msg.email.subject + \" \" + msg.email.body)\n      .replace(\"{fullTemplate}\", JSON.stringify(templates.fullTemplate, null, 2))\n      .replace(\"{shortTemplate}\", JSON.stringify(templates.shortTemplate, null, 2))\n      //+ \"Ответ предоставь только в виде short Template\"\n      }\n    ,{role: \"assistant\", \n      content: templates.promptTemplateAssis\n      .replace(\"{promt_assist}\", msg.promt_assist)\n      }\n]\n\nmsg.promt_text_orig = msg.payload.messages[0].content + ' \\n ' + msg.payload.messages[1].content;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 300,
-        "wires": [
-            [
-                "ac50b4925271335e"
-            ]
-        ]
-    },
-    {
-        "id": "ac50b4925271335e",
-        "type": "link out",
-        "z": "e9414db80e9d3b72",
-        "name": "Promt link out 2",
-        "mode": "link",
-        "links": [
-            "5717f6c718b3eb3c"
-        ],
-        "x": 1255,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "7aaafde957cd3a2b",
-        "type": "switch",
-        "z": "e9414db80e9d3b72",
-        "name": "",
-        "property": "owlet_id_orig",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nnull"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 590,
-        "y": 420,
-        "wires": [
-            [
-                "2d23f9b57349c44a"
-            ],
-            [
-                "1374383f047dca87"
-            ]
-        ]
-    },
-    {
-        "id": "2d23f9b57349c44a",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "Получаем teams_id",
-        "func": "const data = {\n    owlet_id: msg.owlet_id_orig || null,\n};\n\nmsg.topic = `\nselect teams_id\nfrom llm_interactions\nwhere owlet_id = CAST($owlet_id AS INTEGER)\n`; \n\nmsg.payload = [\n    data.owlet_id\n];\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 780,
-        "y": 400,
-        "wires": [
-            [
-                "90a4b24ac91d49f3"
-            ]
-        ]
-    },
-    {
-        "id": "90a4b24ac91d49f3",
-        "type": "sqlite",
-        "z": "e9414db80e9d3b72",
-        "mydb": "352f0cee1c53409e",
-        "sqlquery": "msg.topic",
-        "sql": "",
-        "name": "Owlet DB",
-        "x": 960,
-        "y": 400,
-        "wires": [
-            [
-                "d8b0bcbd18fb5bbf"
-            ]
-        ]
-    },
-    {
-        "id": "d8b0bcbd18fb5bbf",
-        "type": "function",
-        "z": "e9414db80e9d3b72",
-        "name": "get teams_id",
-        "func": "if (!msg.payload || !Array.isArray(msg.payload) || msg.payload.length === 0) {\n    //node.warn(\"Пустой payload или отсутствуют данные\");\n    msg.teams_id = null;\n} else if (!msg.payload[0].hasOwnProperty('teams_id')) {\n    //node.warn(\"Отсутствует свойство teams_id\");\n    msg.teams_id = null;\n} else {\n    msg.teams_id = msg.payload[0].teams_id;\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 400,
-        "wires": [
-            [
-                "1374383f047dca87"
-            ]
-        ]
-    },
-    {
-        "id": "665d743efe963071",
-        "type": "link in",
-        "z": "e9414db80e9d3b72",
-        "d": true,
-        "name": "link in 1",
-        "links": [],
-        "x": 575,
-        "y": 660,
-        "wires": [
-            [
-                "d07182d99f6c98e6"
-            ]
-        ]
-    },
-    {
-        "id": "8fa09b098abc9b26",
-        "type": "comment",
-        "z": "e9414db80e9d3b72",
-        "name": "Краткая документация",
-        "info": "Общее описание\nПроект представляет собой AI-ассистента для автоматизированной обработки уведомлений от ИТ-поставщиков. Основные функции:\n\nАнализ писем (парсинг, классификация).\nОценка рисков.\nГенерация отчетов в формате JSON.\nИнтеграция с Teams, почтой, Monq и другими системами.\nКлючевые компоненты\nПолучение почты (e-mail in)\nИспользует IMAP для чтения писем из mail.sovcombank.group.\nФильтрует письма по UNSEEN.\nОпределение вендора (LLM + SQLite)\nAI (google/gemma-3-27b-it) анализирует текст письма и определяет поставщика.\nПроверяет историю в SQLite (/tmp/owletdb).\nОбработка данных\nФормирование промта для AI.\nГенерация JSON-отчетов (fullTemplate для CRM, shortTemplate для чат-ботов).\nИнтеграции\nVK Teams – отправка уведомлений через API.\nMonq – передача данных в поток streamKey.\nNetBox – запросы к API для получения информации о провайдерах.\nЛогирование и хранение\nВсе взаимодействия сохраняются в SQLite (llm_interactions).",
-        "x": 120,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "12fd667669176e37",
-        "type": "Service Host",
-        "apiBase": "http://uyt-ml-app1.sovcombank.group:443/v1",
-        "secureApiKeyHeaderOrQueryName": "Bearer",
-        "organizationId": "",
-        "name": "uyt-ml-app1.sovcombank.group"
-    },
-    {
-        "id": "9cf3f2a242cf6636",
-        "type": "http proxy",
-        "name": "",
-        "url": "http://proxy-server.sovcombank.group:3128",
-        "noproxy": [
-            "uyt-ml-app1.sovcombank.group"
-        ]
-    },
-    {
-        "id": "352f0cee1c53409e",
-        "type": "sqlitedb",
-        "db": "/tmp/owletdb",
-        "mode": "RWC"
-    }
+  {
+    "id": "e9414db80e9d3b72",
+    "type": "tab",
+    "label": "Owlet-agent",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "95e5dfaf7db9e1c0",
+    "type": "tcp out",
+    "z": "e9414db80e9d3b72",
+    "name": "",
+    "host": "// Заглушка для конкурса ИТМО",
+    "port": "443",
+    "beserver": "client",
+    "base64": false,
+    "end": false,
+    "tls": "",
+    "x": 610,
+    "y": 1240,
+    "wires": []
+  },
+  {
+    "id": "89f2e080287544c1",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Проект ИИ Марафона \"Букля-агент(Smart Owlet)\"",
+    "info": "",
+    "x": 590,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "9c3f8d2a5dfd24ac",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Запуск шедулера",
+    "info": "",
+    "x": 110,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "f23a74339cb9369d",
+    "type": "inject",
+    "z": "e9414db80e9d3b72",
+    "name": "Запуск шедулера",
+    "props": [
+      {
+        "p": "delay",
+        "v": "15000",
+        "vt": "num"
+      },
+      {
+        "p": "lastEventId",
+        "v": "0",
+        "vt": "num"
+      }
+    ],
+    "repeat": "30",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "3",
+    "topic": "",
+    "x": 350,
+    "y": 100,
+    "wires": [
+      [
+        "75b93d466dd062b4"
+      ]
+    ]
+  },
+  {
+    "id": "691e18e851faeff0",
+    "type": "inject",
+    "z": "e9414db80e9d3b72",
+    "name": "Остановить шедулер",
+    "props": [
+      {
+        "p": "reset",
+        "v": "true",
+        "vt": "bool"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": "5",
+    "topic": "",
+    "x": 580,
+    "y": 100,
+    "wires": [
+      [
+        "75b93d466dd062b4"
+      ]
+    ]
+  },
+  {
+    "id": "e7057689b0c9457b",
+    "type": "template",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "Письмо",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "handlebars",
+    "syntax": "mustache",
+    "template": "От:\tRT Notification Center (SUPR) <Supr.notification@rt.ru>\nОтправлено:\t18 апреля 2025 г. 12:18\nКому:\tnoc-info; vipservice@rt.ru\nТема:\tПлановые работы 00/25017696 для ПАО \"Совкомбанк\"\n\nУважаемые коллеги, ПАО \"Совкомбанк\", \n \n \nинформируем вас о проведении плановых работ № 00/25017696 на сети Ростелеком. \nОбщее временное окно работ: 22 апр. 2025 18:00 (МСК) – 22 апр. 2025 23:00 (МСК). \nИнформация о работах внешней организации: \n---  \n \n \nПровайдер: Ростелеком \nМесто проведения работ: Саха /Якутия/ Респ\nТип \nусл\nуги\nИде\nнти\nфик\nато\nр \nкан\nала \n/ \nНо\nмер \nсвяз\nи\nНо\nмер \nЗак\nаза\n№ \nДог\nово\nра\nАдр\nес \nусл\nуги\nОка\nзыв\nаем\nое \nвли\nяни\nе на \nусл\nугу\nДат\nа и \nвре\nмя \nвли\nяни\nя \n(М\nСК)\nИнт\nерв\nал \nвли\nяни\nя\nКол\n-во \nпре\nрыв\nани\nй в \nинт\nерв\nале\nНо\nмер \nзак\nаза \n(точ\nка 2 \nдля \nL2 \nVP\nN/V\nPLS \nкан\nало\nв)\nАдр\nес \n(точ\nка 2 \nдля \nL2 \nVP\nN/V\nPLS \nкан\nало\nв)\nInter\nnet\n\n24-\n376\n864\n14-\n14-\n16\n677\n000, \nРес\nпуб\nлик\nа \nСах\nа \n/Яку\nтия/\n, г. \nЯку\nтск, \nул. \nПоя\nрко\nва, \nд. \n20/1\nС \nкрат\nков\nрем\nенн\nым \nпре\nрыв\nани\nем \nсерв\nиса\n22 \nапр. \n202\n5 \n18:0\n0 \n(МС\nК) - \n22 \nапр. \n202\n5 \n23:0\n0 \n(МС\nК) \n59се\nк.\n1\n\n\nInter\nnet\n24-\n197\n739\n24-\n197\n739\n14-\n14-\n16\n677\n000, \nРес\nпуб\nлик\nа \nСах\nа \n/Яку\nтия/\n, г. \nЯку\nтск, \nпр-т \nЛен\nина, \nд. 3, \nкор\nп. 1\nС \nкрат\nков\nрем\nенн\nым \nпре\nрыв\nани\nем \nсерв\nиса\n22 \nапр. \n202\n5 \n18:0\n0 \n(МС\nК) - \n22 \nапр. \n202\n5 \n23:0\n0 \n(МС\nК) \n59се\nк.\n1\n\n\nInter\nnet\n22-\n182\n662\n24-\n230\n625\n14-\n14-\n16\n678\n000, \nРес\nпуб\nлик\nа \nСах\nа \n/Яку\nтия/\n, у. \nХан\nгала\nсски\nй, г. \nПок\nровс\nк, \nул. \nПри\nтузо\nва, \nд. \n33\nС \nкрат\nков\nрем\nенн\nым \nпре\nрыв\nани\nем \nсерв\nиса\n22 \nапр. \n202\n5 \n18:0\n0 \n(МС\nК) - \n22 \nапр. \n202\n5 \n23:0\n0 \n(МС\nК) \n59се\nк.\n1\n\n\n \n \nПриносим свои извинения за доставленные неудобства. \nОбращаем ваше внимание, что данное уведомление сгенерировано автоматически, \nпожалуйста не отвечайте на него. \n \n \nПо всем возникшим вопросам вы можете обратиться в Отдел обслуживания корпоративных и \nгосударственных заказчиков Корпоративного Центра ПАО «Ростелеком»: \ne-mail: vipservice@rt.ru; \nтел.: +7 (499) 999-8143\n",
+    "output": "str",
+    "x": 280,
+    "y": 1240,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "d38692b4c1fd7f4a",
+    "type": "debug",
+    "z": "e9414db80e9d3b72",
+    "name": "Вывод ошибок",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "error",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1020,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "df4043aeb2ed7a95",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Обработка  \\n письма",
+    "func": "function htmlToText(html) {\n    if (!html) return '';\n    \n    // Улучшенный парсер\n    return html\n        .replace(/<style[^>]*>.*?<\\/style>/gs, '')  // Удаляем стили\n        .replace(/<script[^>]*>.*?<\\/script>/gs, '') // Удаляем скрипты\n        .replace(/<br\\s*\\/?>/gi, '\\n')              // Переносы строк\n        .replace(/<\\/p>/gi, '\\n\\n')                 // Абзацы\n        .replace(/<[^>]+>/g, '')                    // Все остальные теги\n        .replace(/&nbsp;/g, ' ')                    // Спецсимволы\n        .replace(/\\s+/g, ' ')                       // Множественные пробелы\n        .trim();\n}\n\nmsg.email = {\n    from: msg.from || '',\n    subject: msg.topic || '(no subject)',\n    //html: msg.html || '',\n    body: htmlToText(msg.html)\n    //body: msg.html\n};\n\nif (!msg.email.body) {\n    node.warn(\"Empty email body after conversion\");\n    // Альтернатива: использовать текстовую версию, если есть\n    msg.email.body = msg.payload || \"[No content]\";\n}\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 300,
+    "wires": [
+      [
+        "047914f46fbf3925"
+      ]
+    ]
+  },
+  {
+    "id": "49890c63b3ad6e29",
+    "type": "catch",
+    "z": "e9414db80e9d3b72",
+    "name": "Error Handle",
+    "scope": null,
+    "uncaught": false,
+    "x": 850,
+    "y": 540,
+    "wires": [
+      [
+        "d38692b4c1fd7f4a"
+      ]
+    ]
+  },
+  {
+    "id": "e970520d870c771d",
+    "type": "change",
+    "z": "e9414db80e9d3b72",
+    "name": "Параметры \\n для LLM",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload.model",
+        "pt": "msg",
+        "to": "google/gemma-3-27b-it",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload.max_completion_tokens",
+        "pt": "msg",
+        "to": "8192",
+        "tot": "num"
+      },
+      {
+        "t": "delete",
+        "p": "url",
+        "pt": "msg"
+      },
+      {
+        "t": "set",
+        "p": "payload.temperature",
+        "pt": "msg",
+        "to": "0.5",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "temperature",
+        "pt": "msg",
+        "to": "payload.temperature",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 130,
+    "y": 420,
+    "wires": [
+      [
+        "054ab592d58e8c0c"
+      ]
+    ]
+  },
+  {
+    "id": "054ab592d58e8c0c",
+    "type": "OpenAI API",
+    "z": "e9414db80e9d3b72",
+    "name": "Запрос \\n в LLM",
+    "property": "payload",
+    "propertyType": "msg",
+    "service": "12fd667669176e37",
+    "method": "createChatCompletion",
+    "x": 280,
+    "y": 420,
+    "wires": [
+      [
+        "8d2e1aa833fed7ad"
+      ]
+    ]
+  },
+  {
+    "id": "9cccb2e2a5ebfbc7",
+    "type": "OpenAI API",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "Список моделей БЯМ",
+    "property": "payload",
+    "propertyType": "msg",
+    "service": "12fd667669176e37",
+    "method": "listModels",
+    "x": 320,
+    "y": 1300,
+    "wires": [
+      [
+        "2d55c5dd6b5b6033"
+      ]
+    ]
+  },
+  {
+    "id": "8e07dbb928ed10ec",
+    "type": "inject",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 1300,
+    "wires": [
+      [
+        "9cccb2e2a5ebfbc7"
+      ]
+    ]
+  },
+  {
+    "id": "2d55c5dd6b5b6033",
+    "type": "debug",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "List models LLM",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 540,
+    "y": 1300,
+    "wires": []
+  },
+  {
+    "id": "65824028f89061d8",
+    "type": "e-mail in",
+    "z": "e9414db80e9d3b72",
+    "name": "Получаем  \\n  почту",
+    "protocol": "IMAP",
+    "server": "// Заглушка для конкурса ИТМО",
+    "useSSL": true,
+    "autotls": "required",
+    "port": "993",
+    "authtype": "BASIC",
+    "saslformat": true,
+    "token": "// Заглушка для конкурса ИТМО",
+    "box": "INBOX",
+    "disposition": "Read",
+    "criteria": "UNSEEN",
+    "repeat": "60",
+    "fetch": "trigger",
+    "inputs": 1,
+    "x": 120,
+    "y": 220,
+    "wires": [
+      [
+        "5aa9cbf9c0594c62"
+      ]
+    ]
+  },
+  {
+    "id": "1904cce35a8723e4",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Задаем переменные \\n промта",
+    "func": "// В первой function-ноде при инициализации (или в OnStart)\ncontext.global.templates = {\n  promptTemplateSys:\n    `Ты - AI-ассистент по обработке инцидентов в ИТ-инфраструктуре. Твои задачи:\n  1. Анализ технических уведомлений от поставщиков\n  2. Классификация событий (инциденты/работы/отмены)\n  3. Оценка рисков по 3-балльной шкале (1-minor, 3-critical)\n  4. Генерация JSON-отчетов в двух форматах:\n    - Полный (для CRM)\n    - Краткий (для чат-ботов)\n  5. Формирование рекомендаций с пометкой \"ИИ рекомендации\" - обязательный пункт\n\n  Правила обработки:\n  - Поставщик определяется по домену → тексту → подписи\n  - Даты всегда в формате DD.MM.YYYY HH:MM\n  - Наименование вендора должно быть на русском языке, все буквы строчные, убраны лишние кавычки, скобки и приставки, например ООО, АО и т.д.\n  - Неизвестные данные не показываются\n  - json должен быть корректным для распарсивания, с корректным экранированием и валидацией\n    \n  `,\n  promptTemplateAssis: null,\n\n  promptTemplate: `\nОбработай письмо и верни ТОЛЬКО краткий(shortTemplate) JSON-шаблон \n(json должен быть корректным для распарсивания, с корректным экранированием и валидацией)\nСтруктура:\n\n1. Определи поставщика (@domain → vendor)\n2. Извлеки ключевые данные:\n   - Тип уведомления (auto-classify)\n   - Локации (все адреса через \\n)\n   - Сроки (start/end)\n   - ID сервисов\n3. Оцени риски (1-3)\n4. Сформируй message в формате:\n\"\"\"\n*Поставщик услуги*: {vendor}\n*Адрес*: {addresses}\n*ID*: {service_id} \n*Тип*: {service_type}\n*Период*: {start} - {end} \n*Перерыв*: {downtime} \n*Дополнительно* (то, что не вошло в пункты выше)\n\n*Риск*: {risk_level}/3\n*ИИ рекомендации*:\n1) {action1}\n2) {action2}\nи т.д.\n\"\"\"\n\nДанные для анализа:\n{emailText}\n\nШаблон full:\n{fullTemplate}\n\nШаблон short:\n{shortTemplate}\n`,\n\n  fullTemplate: {\n  \"alert\": {\n    \"meta\": {\n      \"source_type\": \"\",\n      \"original_format\": \"\",\n      \"processing_time\": \"\"\n    },\n    \"header\": {\n      \"id\": \"\",\n      \"sender\": \"\",\n      \"recipients\": [],\n      \"subject\": \"\",\n      \"date_sent\": \"\",\n      \"priority\": \"\",\n      \"notification_type\": \"\"\n    },\n    \"content\": {\n      \"event_type\": \"\",\n      \"status\": \"\",\n      \"description\": \"\",\n      \"schedule\": {\n        \"planned_start\": \"\",\n        \"planned_end\": \"\",\n        \"actual_start\": \"\",\n        \"actual_end\": \"\"\n      },\n      \"location\": {\n        \"address\": \"\",\n        \"city\": \"\",\n        \"site\": \"\",\n        \"coordinates\": \"\"\n      },\n      \"affected_services\": [\n        {\n          \"service_id\": \"\",\n          \"service_type\": \"\",\n          \"impact_level\": \"\"\n        }\n      ],\n      \"work_details\": {\n        \"type\": \"\",\n        \"method\": \"\",\n        \"contractor\": \"\"\n      },\n      \"risks\": {\n        \"service_impact\": \"\",\n        \"redundancy_impact\": \"\",\n        \"downtime_probability\": \"\"\n      }\n    },\n    \"actions\": {\n      \"required\": \"\",\n      \"deadline\": \"\",\n      \"confirmation_needed\": \"\"\n    },\n    \"contacts\": {\n      \"primary\": {\n        \"department\": \"\",\n        \"phone\": \"\",\n        \"email\": \"\"\n      },\n      \"secondary\": []\n    },\n    \"references\": {\n      \"ticket_id\": \"\",\n      \"external_link\": \"\",\n      \"related_orders\": [],\n      \"attachments\": []\n    }\n  }\n},\n\n  shortTemplate: {\n  \"alert\": {\n    \"vendor\": \"\",    \n    \"title\": \"\",\n    \"message\": \"\",\n    \"priority\": \"\",\n    \"datetime\": \"\",\n    \"type\": \"\",\n    \"actions\": [],\n    \"ai_analysis\": {\n      \"risk_assessment\": {\n        \"service_impact\": 0,\n        \"redundancy_impact\": 0,\n        \"financial_risk\": 0\n      },\n      \"recommendations\": [],\n      \"key_notes\": []\n    }\n  }\n}\n};\n\n\nreturn msg;\n\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 160,
+    "y": 300,
+    "wires": [
+      [
+        "df4043aeb2ed7a95"
+      ]
+    ]
+  },
+  {
+    "id": "5aa9cbf9c0594c62",
+    "type": "switch",
+    "z": "e9414db80e9d3b72",
+    "name": "Проверка \\n письма",
+    "property": "from",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "nnull"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 260,
+    "y": 220,
+    "wires": [
+      [
+        "7b120a4b87ad37bc"
+      ]
+    ]
+  },
+  {
+    "id": "047914f46fbf3925",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Подготовка  \\n промта",
+    "func": "delete msg.payload;\nmsg.payload = msg.payload || {};\nmsg.payload.messages = msg.payload.messages || {};\n\n// Получаем шаблоны из глобального контекста\nconst templates = context.global.templates;\n\n//node.warn(templates.promptTemplate); // Проверьте наличие шаблона\n//node.warn(msg.email.body); // Должен возвращать строку\n\n// Формируем финальный промт\nmsg.payload.messages = [\n    {role: \"system\", content: templates.promptTemplateSys}, \n    {role: \"user\", \n      content : templates.promptTemplate\n      .replace(\"{emailText}\", msg.email.subject + \" \" + msg.email.body)\n      .replace(\"{fullTemplate}\", JSON.stringify(templates.fullTemplate, null, 2))\n      .replace(\"{shortTemplate}\", JSON.stringify(templates.shortTemplate, null, 2))\n      //+ \"Ответ предоставь только в виде short Template\"\n      }\n    ,{role: \"assistant\", content: templates.promptTemplateAssis}\n]\nmsg.promt_text_orig = msg.payload.messages[0].content + ' \\n ' + msg.payload.messages[1].content;\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 510,
+    "y": 300,
+    "wires": [
+      [
+        "441d3196dc26d572"
+      ]
+    ]
+  },
+  {
+    "id": "2efa5b90c812894b",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Получение почты и подготовка промта",
+    "info": "",
+    "x": 180,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "6f339ca98a793144",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Готовим запрос к AI и вызываем",
+    "info": "",
+    "x": 160,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "5717f6c718b3eb3c",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "name": "LLM link in",
+    "links": [
+      "441d3196dc26d572",
+      "ac50b4925271335e"
+    ],
+    "x": 35,
+    "y": 420,
+    "wires": [
+      [
+        "e970520d870c771d"
+      ]
+    ]
+  },
+  {
+    "id": "7d4411410bb79c3e",
+    "type": "link out",
+    "z": "e9414db80e9d3b72",
+    "name": "Email out 1",
+    "mode": "link",
+    "links": [
+      "967d353bec0ad6d5"
+    ],
+    "x": 1105,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "49e362123b749ed4",
+    "type": "inject",
+    "z": "e9414db80e9d3b72",
+    "name": "Еденичный вызов",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 810,
+    "y": 100,
+    "wires": [
+      [
+        "75b93d466dd062b4"
+      ]
+    ]
+  },
+  {
+    "id": "8d2e1aa833fed7ad",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Обработка \\n данных",
+    "func": "const responseText = msg.payload.choices[0].message.content;\nlet jsonData = {};\n\ntry {\n    const jsonMatch = responseText.match(/```json([\\s\\S]*?)```|Ответ в формате JSON.*?(\\{[\\s\\S]*\\})/i);\n    const jsonString = jsonMatch ? (jsonMatch[1] || jsonMatch[2]) : responseText;\n    jsonData = JSON.parse(jsonString);\n    \n    msg.parsed_data = jsonData;\n    msg.promt_id = msg.payload.id;\n    msg.topicText = jsonData.alert?.title;\n    msg.messageText = jsonData.alert?.message;\n    msg.owlet_id_orig = jsonData.alert?.type||null;\n\n} catch (e) {\n    msg.error = {\n        message: \"Ошибка парсинга JSON\",\n        error: e.toString(),\n        original_text: responseText\n    };\n    node.error(\"Ошибка: \" + e.message, msg);\n}\nreturn msg;\n\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 420,
+    "wires": [
+      [
+        "7aaafde957cd3a2b"
+      ]
+    ]
+  },
+  {
+    "id": "f87e871aa3d8010c",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Отправка сообщения в VK Teams",
+    "info": "",
+    "x": 160,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "9ef0950559f9e95e",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Переменные  \\n для тимс ",
+    "func": "msg.userId = \"// Заглушка для конкурса ИТМО\";\nmsg.chatId = \"// Заглушка для конкурса ИТМО\";\n\nmsg.url = \"// Заглушка для конкурса ИТМО\";\nlet tokenLoc = \"// Заглушка для конкурса ИТМО\";\n\nlet teams_idLoc = \"// Заглушка для конкурса ИТМО\";\n\nlet textLoc = `*${msg.topicText}*  \\n\\n${msg.messageText}`;\n\nmsg.payload = { token: tokenLoc, chatId: msg.chatId, text: textLoc, parseMode: \"MarkdownV2\", replyMsgId: teams_idLoc};\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 140,
+    "y": 540,
+    "wires": [
+      [
+        "c888a56ee56f3bc9"
+      ]
+    ]
+  },
+  {
+    "id": "07a353824b927014",
+    "type": "link out",
+    "z": "e9414db80e9d3b72",
+    "name": "LLM out",
+    "mode": "link",
+    "links": [
+      "5c8bad541677833a",
+      "5ee42f8b90dd48f1",
+      "76091a03bf73bd41"
+    ],
+    "x": 1155,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "76091a03bf73bd41",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "name": "Teams link in",
+    "links": [
+      "07a353824b927014"
+    ],
+    "x": 35,
+    "y": 540,
+    "wires": [
+      [
+        "9ef0950559f9e95e"
+      ]
+    ]
+  },
+  {
+    "id": "4c9811bf69422a3e",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Обработка ошибок в консоль",
+    "info": "",
+    "x": 900,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "c888a56ee56f3bc9",
+    "type": "http request",
+    "z": "e9414db80e9d3b72",
+    "name": "Отправляем  \\n сообщение в teams",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "query",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "9cf3f2a242cf6636",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 340,
+    "y": 540,
+    "wires": [
+      [
+        "8541c2ffdd1cf2ac"
+      ]
+    ]
+  },
+  {
+    "id": "3363e0abe3311989",
+    "type": "e-mail",
+    "z": "e9414db80e9d3b72",
+    "server": "// Заглушка для конкурса ИТМО",
+    "port": "587",
+    "authtype": "BASIC",
+    "saslformat": true,
+    "token": "// Заглушка для конкурса ИТМО",
+    "secure": false,
+    "tls": false,
+    "name": "",
+    "dname": "Отправить почту",
+    "x": 390,
+    "y": 640,
+    "wires": []
+  },
+  {
+    "id": "df87786856fd5cd1",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Переменные для почты",
+    "func": "// Основные параметры\nmsg.topic = msg.topicText;\nmsg.payload = msg.messageText.replace(/\\*/g, '');\n\nif (!msg.payload) {\n    msg.text = msg.messageText;\n    }\n\n// Адреса\nmsg.from = \"// Заглушка для конкурса ИТМО\";\nmsg.to = \"// Заглушка для конкурса ИТМО\";\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 170,
+    "y": 640,
+    "wires": [
+      [
+        "3363e0abe3311989"
+      ]
+    ]
+  },
+  {
+    "id": "23f8f1b8f65e02aa",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Отправка сообщения в почту",
+    "info": "",
+    "x": 140,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "5ee42f8b90dd48f1",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "Mail link in",
+    "links": [
+      "07a353824b927014"
+    ],
+    "x": 35,
+    "y": 640,
+    "wires": [
+      [
+        "df87786856fd5cd1"
+      ]
+    ]
+  },
+  {
+    "id": "9d1c305c92bacb3e",
+    "type": "debug",
+    "z": "e9414db80e9d3b72",
+    "name": "debug 2",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1180,
+    "y": 940,
+    "wires": []
+  },
+  {
+    "id": "b467ddee66339b5c",
+    "type": "http request",
+    "z": "e9414db80e9d3b72",
+    "name": "Запрос к \\n  NetBox",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [
+      {
+        "keyType": "other",
+        "keyValue": "Authorization",
+        "valueType": "other",
+        "valueValue": "// Заглушка для конкурса ИТМО"
+      },
+      {
+        "keyType": "other",
+        "keyValue": "Accept",
+        "valueType": "other",
+        "valueValue": "application/json"
+      }
+    ],
+    "x": 820,
+    "y": 660,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "1aaabe0109d4d327",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Запрос в NetBox",
+    "info": "",
+    "x": 640,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "d07182d99f6c98e6",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Параметры \\n для NetBox",
+    "func": "msg = msg || {};\nmsg.payload = msg.payload || \"\";\n\nmsg.rejectUnauthorized = false;\n\nmsg.url = \"// Заглушка для конкурса ИТМО\";\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 670,
+    "y": 660,
+    "wires": [
+      [
+        "b467ddee66339b5c"
+      ]
+    ]
+  },
+  {
+    "id": "6a092a4b3255b6f6",
+    "type": "debug",
+    "z": "e9414db80e9d3b72",
+    "name": "debug 3",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "teams_id",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1180,
+    "y": 980,
+    "wires": []
+  },
+  {
+    "id": "ad17d8355f9c9580",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Работа с Qdrant",
+    "info": "",
+    "x": 100,
+    "y": 760,
+    "wires": []
+  },
+  {
+    "id": "842fdb1345b57bb4",
+    "type": "rag-vectordb-qdrant",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "rag-vectordb-qdrant",
+    "localSavePath": "./",
+    "remoteUrl": "",
+    "remoteApiKey": "",
+    "x": 110,
+    "y": 800,
+    "wires": [
+      [],
+      []
+    ]
+  },
+  {
+    "id": "b2c089c4614c9c8d",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Работа с Monq",
+    "info": "",
+    "x": 100,
+    "y": 680,
+    "wires": []
+  },
+  {
+    "id": "add2e764a3f025e0",
+    "type": "http request",
+    "z": "e9414db80e9d3b72",
+    "name": "Отправка в Monq",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 370,
+    "y": 720,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "492d91987e6e385f",
+    "type": "sqlite",
+    "z": "e9414db80e9d3b72",
+    "mydb": "352f0cee1c53409e",
+    "sqlquery": "msg.topic",
+    "sql": "",
+    "name": "Owlet DB",
+    "x": 1160,
+    "y": 1100,
+    "wires": [
+      [
+        "b4cb79adc2559283"
+      ]
+    ]
+  },
+  {
+    "id": "6363c9b905cf52e3",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Работа с БД",
+    "info": "",
+    "x": 870,
+    "y": 1060,
+    "wires": []
+  },
+  {
+    "id": "d1cd154607fbe026",
+    "type": "inject",
+    "z": "e9414db80e9d3b72",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 920,
+    "y": 1160,
+    "wires": [
+      [
+        "6c70735bf86a6247"
+      ]
+    ]
+  },
+  {
+    "id": "6c70735bf86a6247",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "function 1",
+    "func": "msg.topic = \"select * from llm_interactions;\"; \n\n//msg.topic = \"PRAGMA table_info(llm_interactions);\"; // Получить структуру таблицы\n\n/*\nmsg.topic = `\nCREATE TABLE IF NOT EXISTS llm_interactions (\n    owlet_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    vendor TEXT(255) NOT NULL,\n    promt_id TEXT NOT NULL,\n    promt_text_orig TEXT NULL,  \n    promt_responce TEXT NULL,   \n    teams_id TEXT NULL,\n    mail_id TEXT NULL,\n    monq_id TEXT NULL,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP\n);\n`; \n*/\n\n//msg.topic = `select teams_id from llm_interactions where vendor = \"билайн бизнес\"`; \n\n//msg.topic = \"delete from llm_interactions;\"; \n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1000,
+    "y": 1100,
+    "wires": [
+      [
+        "492d91987e6e385f"
+      ]
+    ]
+  },
+  {
+    "id": "b4cb79adc2559283",
+    "type": "debug",
+    "z": "e9414db80e9d3b72",
+    "name": "debug 4",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1140,
+    "y": 1180,
+    "wires": []
+  },
+  {
+    "id": "1374383f047dca87",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Сохраняем в БД",
+    "func": "// Формируем данные\nconst data = {\n    vendor: msg.vendor || null,\n    promt_id: msg.promt_id || null,\n    promt_responce: msg.parsed_data || null,\n    promt_text_orig: msg.promt_text_orig || null\n};\n\n// SQL-запрос с плейсхолдерами ?\nmsg.topic = `\n    INSERT INTO llm_interactions (\n        vendor, \n        promt_id, \n        promt_responce,\n        promt_text_orig\n    ) VALUES (\n        $vendor, \n        $promt_id, \n        $promt_responce,\n        $promt_text_orig)\n    RETURNING owlet_id;\n`;\n\n// Параметры в виде массива (порядок важен!)\nmsg.payload = [\n    data.vendor,\n    data.promt_id, \n    data.promt_responce,\n    data.promt_text_orig\n];\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 770,
+    "y": 440,
+    "wires": [
+      [
+        "a040d3cd802d3d60"
+      ]
+    ]
+  },
+  {
+    "id": "a040d3cd802d3d60",
+    "type": "sqlite",
+    "z": "e9414db80e9d3b72",
+    "mydb": "352f0cee1c53409e",
+    "sqlquery": "msg.topic",
+    "sql": "",
+    "name": "Owlet DB",
+    "x": 940,
+    "y": 440,
+    "wires": [
+      [
+        "6c8c35293d917bb5"
+      ]
+    ]
+  },
+  {
+    "id": "4d89c0326cd6b612",
+    "type": "debug",
+    "z": "e9414db80e9d3b72",
+    "name": "debug 5",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1180,
+    "y": 1020,
+    "wires": []
+  },
+  {
+    "id": "6c8c35293d917bb5",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "set id",
+    "func": "msg.owlet_id = msg.payload[0].owlet_id;\n\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1070,
+    "y": 440,
+    "wires": [
+      [
+        "07a353824b927014"
+      ]
+    ]
+  },
+  {
+    "id": "8541c2ffdd1cf2ac",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Сохраняем \\n в БД",
+    "func": "msg.msgId = msg.payload.msgId;\n// Формируем данные\nconst data = {\n    teams_id : msg.msgId || null,\n    owlet_id : msg.owlet_id || null    \n};\n\n// SQL-запрос с именованными параметрами\nmsg.topic = `\n    UPDATE llm_interactions \n    SET teams_id = $teams_id\n    WHERE owlet_id = $owlet_id;\n`;\n\n// Параметры в виде ОБЪЕКТА (НЕ массива!)\nmsg.payload = [\n    data.teams_id,\n    data.owlet_id\n];\n\n// Добавляем логирование для отладки\n//node.warn(data.owlet_id);\n//node.warn(msg.msgId);\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 530,
+    "y": 540,
+    "wires": [
+      [
+        "85a661943cebf69a"
+      ]
+    ]
+  },
+  {
+    "id": "85a661943cebf69a",
+    "type": "sqlite",
+    "z": "e9414db80e9d3b72",
+    "mydb": "352f0cee1c53409e",
+    "sqlquery": "msg.topic",
+    "sql": "",
+    "name": "Owlet DB",
+    "x": 680,
+    "y": 540,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "d17a4083ab8d3f72",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Задаем параметры",
+    "func": "msg.url = \"// Заглушка для конкурса ИТМО\";\n\n// Опциональные заголовки\nmsg.headers = {\n    \"Accept\": \"application/json\",\n    \"User-Agent\": \"Owlet Bot\"\n};\nmsg.rejectUnauthorized = false;\n\n// Добавьте таймаут\nmsg.timeout = 30000; // 30 секунд\n\nmsg.payload = msg.jsonText;\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 160,
+    "y": 720,
+    "wires": [
+      [
+        "add2e764a3f025e0"
+      ]
+    ]
+  },
+  {
+    "id": "5c8bad541677833a",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "name": "Monq link in",
+    "links": [
+      "07a353824b927014"
+    ],
+    "x": 35,
+    "y": 720,
+    "wires": [
+      [
+        "d17a4083ab8d3f72"
+      ]
+    ]
+  },
+  {
+    "id": "75b93d466dd062b4",
+    "type": "link out",
+    "z": "e9414db80e9d3b72",
+    "name": "Start link out",
+    "mode": "link",
+    "links": [
+      "d0f0d83e02592c24"
+    ],
+    "x": 935,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "d0f0d83e02592c24",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "name": "Email link in",
+    "links": [
+      "75b93d466dd062b4"
+    ],
+    "x": 35,
+    "y": 220,
+    "wires": [
+      [
+        "65824028f89061d8"
+      ]
+    ]
+  },
+  {
+    "id": "7b120a4b87ad37bc",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Ищем  \\n вендора",
+    "func": "// В первой function-ноде при инициализации (или в OnStart)\ncontext.global.templates = {\n  promptTemplateSys:\n    `Ты - AI-ассистент по обработке писем в ИТ-инфраструктуре. \n  Твои задачи:\n  1. проанализировать и определить поставщика услуги(вендора)\n  2. Вернуть ответ в json формате\n  Правила обработки:\n  - Поставщик определяется по домену → тексту → подписи\n  - Даты всегда в формате DD.MM.YYYY HH:MM\n  - Наименование вендора должно быть на русском языке, все буквы строчные, убраны лишние кавычки, скобки и приставки, например ООО, АО и т.д.\n  - json должен быть корректным для распарсивания, с корректным экранированием и валидацией\n   \n  `,\n  promptTemplate: `\nОбработай письмо и верни ТОЛЬКО JSON-шаблон \n(json должен быть корректным для распарсивания, с корректным экранированием и валидацией)\n{\n  \"vendor\": \"\", \n}\n\nДанные для анализа:\n{emailText}\n`\n}\n\nfunction htmlToText(html) {\n    if (!html) return '';    \n    // Улучшенный парсер\n    return html\n        .replace(/<style[^>]*>.*?<\\/style>/gs, '')  // Удаляем стили\n        .replace(/<script[^>]*>.*?<\\/script>/gs, '') // Удаляем скрипты\n        .replace(/<br\\s*\\/?>/gi, '\\n')              // Переносы строк\n        .replace(/<\\/p>/gi, '\\n\\n')                 // Абзацы\n        .replace(/<[^>]+>/g, '')                    // Все остальные теги\n        .replace(/&nbsp;/g, ' ')                    // Спецсимволы\n        .replace(/\\s+/g, ' ')                       // Множественные пробелы\n        .trim();\n}\n\nmsg.email = {\n    body: htmlToText(msg.html),\n    subject: msg.topic || '(no subject)'\n};\n\nif (!msg.email.body) {\n    // Альтернатива: использовать текстовую версию, если есть    \n    msg.email.body = msg.payload || \"[No content]\";\n}\n\ndelete msg.payload;\nmsg.payload = msg.payload || {};\nmsg.payload.messages = msg.payload.messages || {};\n\n// Получаем шаблоны из глобального контекста\nconst templates = context.global.templates;\n\n// Формируем финальный промт\nmsg.payload.messages = [\n    {role: \"system\", content: templates.promptTemplateSys}, \n    {role: \"user\",  content : templates.promptTemplate.replace(\"{emailText}\", msg.email.subject + \" \" + msg.email.body)}    \n]\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 220,
+    "wires": [
+      [
+        "26def5bceae43bab"
+      ]
+    ]
+  },
+  {
+    "id": "48c43fe3cc4374b5",
+    "type": "sqlite",
+    "z": "e9414db80e9d3b72",
+    "mydb": "352f0cee1c53409e",
+    "sqlquery": "msg.topic",
+    "sql": "",
+    "name": "Owlet DB",
+    "x": 1260,
+    "y": 200,
+    "wires": [
+      [
+        "a0be7c424ca0e919"
+      ]
+    ]
+  },
+  {
+    "id": "26def5bceae43bab",
+    "type": "change",
+    "z": "e9414db80e9d3b72",
+    "name": "Параметры \\n для LLM",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload.model",
+        "pt": "msg",
+        "to": "google/gemma-3-27b-it",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload.max_completion_tokens",
+        "pt": "msg",
+        "to": "8192",
+        "tot": "num"
+      },
+      {
+        "t": "delete",
+        "p": "url",
+        "pt": "msg"
+      },
+      {
+        "t": "set",
+        "p": "payload.temperature",
+        "pt": "msg",
+        "to": "0.3",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 550,
+    "y": 220,
+    "wires": [
+      [
+        "5a63e3cd86bcc75f"
+      ]
+    ]
+  },
+  {
+    "id": "5a63e3cd86bcc75f",
+    "type": "OpenAI API",
+    "z": "e9414db80e9d3b72",
+    "name": "LLM",
+    "property": "payload",
+    "propertyType": "msg",
+    "service": "12fd667669176e37",
+    "method": "createChatCompletion",
+    "x": 690,
+    "y": 220,
+    "wires": [
+      [
+        "0d418a34ee9305d6"
+      ]
+    ]
+  },
+  {
+    "id": "0d418a34ee9305d6",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Ищем \\n совпадения",
+    "func": "const responseText = msg.payload.choices[0].message.content;\nlet jsonData = {};\n\n// Ищем JSON между ```json и ``` или после \"Ответ в формате JSON:\"\nconst jsonMatch = responseText.match(/```json([\\s\\S]*?)```|Ответ в формате JSON.*?(\\{[\\s\\S]*\\})/i);\nconst jsonString = jsonMatch ? (jsonMatch[1] || jsonMatch[2]) : responseText;\n\n// Парсим JSON\njsonData = JSON.parse(jsonString);\n   \n// Сохраняем результат\nmsg.payload = {                \n    vendor: jsonData.vendor || null,                \n};\nmsg.vendor = msg.payload.vendor;\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 830,
+    "y": 220,
+    "wires": [
+      [
+        "8fbc597fcd2f964c"
+      ]
+    ]
+  },
+  {
+    "id": "8fbc597fcd2f964c",
+    "type": "switch",
+    "z": "e9414db80e9d3b72",
+    "name": "Проверяем \\n вендора",
+    "property": "vendor",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "nnull"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 990,
+    "y": 220,
+    "wires": [
+      [
+        "5c32fabcdf980dde"
+      ],
+      [
+        "7d4411410bb79c3e"
+      ]
+    ]
+  },
+  {
+    "id": "5c32fabcdf980dde",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "SQL",
+    "func": "const data = {\n    vendor: msg.vendor || null,\n};\n\nmsg.topic = `\nselect owlet_id, promt_id, promt_text_orig, promt_responce\nfrom llm_interactions\nwhere LOWER(vendor) = LOWER($vendor)\norder by owlet_id DESC\nLIMIT 3;\n`; \n\nmsg.payload = [\n    data.vendor\n];\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1130,
+    "y": 200,
+    "wires": [
+      [
+        "48c43fe3cc4374b5"
+      ]
+    ]
+  },
+  {
+    "id": "967d353bec0ad6d5",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "name": "Promt link in",
+    "links": [
+      "7d4411410bb79c3e"
+    ],
+    "x": 35,
+    "y": 300,
+    "wires": [
+      [
+        "1904cce35a8723e4"
+      ]
+    ]
+  },
+  {
+    "id": "e294664249887f95",
+    "type": "link out",
+    "z": "e9414db80e9d3b72",
+    "name": "Cond link out",
+    "mode": "link",
+    "links": [
+      "9fa1ab349d9eac85"
+    ],
+    "x": 1365,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "a0be7c424ca0e919",
+    "type": "switch",
+    "z": "e9414db80e9d3b72",
+    "name": "Ищем совпадение",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "empty"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 1230,
+    "y": 240,
+    "wires": [
+      [
+        "7d4411410bb79c3e"
+      ],
+      [
+        "e294664249887f95"
+      ]
+    ]
+  },
+  {
+    "id": "89ca9ab839d308c8",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Задаем переменные \\n промта с историей",
+    "func": "msg.promt_assist = msg.payload.map(item => {\n    return '====== Запись ======\\n' +\n           `owlet_id: ${item.owlet_id}\\n` +\n           //`${item.promt_text_orig}\\n` +\n           `${item.promt_responce}\\n` +\n           '====================';\n}).join('\\n\\n');\n\n// В первой function-ноде при инициализации (или в OnStart)\ncontext.global.templates = {\n  promptTemplateSys:\n    `Ты - AI-ассистент по обработке инцидентов в ИТ-инфраструктуре. Твои задачи:\n  1. Анализ технических уведомлений от поставщиков\n  2. Классификация событий (инциденты/работы/отмены)\n  3. Оценка рисков по 3-балльной шкале (1-minor, 3-critical)\n  4. Генерация JSON-отчетов в двух форматах:\n    - Полный (для CRM)\n    - Краткий (для чат-ботов)\n  5. Формирование рекомендаций с пометкой \"ИИ рекомендации\" - обязательный пункт\n\n  Правила обработки:\n  - Поставщик определяется по домену → тексту → подписи\n  - Даты всегда в формате DD.MM.YYYY HH:MM\n  - Наименование вендора должно быть на русском языке, все буквы строчные, убраны лишние кавычки, скобки и приставки, например ООО, АО и т.д.\n  - Неизвестные данные не показываются\n  - json должен быть корректным для распарсивания, с корректным экранированием и валидацией\n    \n  `,\n  promptTemplateAssis: `\n  {promt_assist}\n  \n  `,\n\n  promptTemplate: ` \nОбработай письмо и верни ТОЛЬКО краткий(shortTemplate) JSON-шаблон \n(json должен быть корректным для распарсивания, с корректным экранированием и валидацией)\n\nПроверь по истории вендора, если отмена или повтор события и новое письмо можно связать с определенным событием, то \nзаполни тег {type} значением {owlet_id} той записи, которой соответствует отмена или повтор\nесли найдено в искомом найдено более, чем чем одна запись owlet_id, то верни максимальную\nЕсли новое письмо не связано ни с какими либо предыдущими работами \nто тег {type} нужно заполнить значением 'null'\n\nСтруктура:\n\n1. Определи поставщика (@domain → vendor)\n2. Извлеки ключевые данные:\n   - Тип уведомления (auto-classify)\n   - Локации (все адреса через \\n)\n   - Сроки (start/end)\n   - ID сервисов\n3. Оцени риски (1-3)\n4. Сформируй message в формате:\n\"\"\"\n*Поставщик услуги*: {vendor}\n*Адрес*: {addresses}\n*ID*: {service_id} \n*Тип*: {service_type}\n*Период*: {start} - {end} \n*Перерыв*: {downtime} \n*Дополнительно* (то, что не вошло в пункты выше)\n\n*Риск*: {risk_level}/3\n*ИИ рекомендации*:\n1) {action1}\n2) {action2}\nи т.д.\n\"\"\"\n\nДанные для анализа:\n{emailText}\n\nШаблон full:\n{fullTemplate}\n\nШаблон short:\n{shortTemplate}\n`,\n\n  fullTemplate: {\n  \"alert\": {\n    \"meta\": {\n      \"source_type\": \"\",\n      \"original_format\": \"\",\n      \"processing_time\": \"\"\n    },\n    \"header\": {\n      \"id\": \"\",\n      \"sender\": \"\",\n      \"recipients\": [],\n      \"subject\": \"\",\n      \"date_sent\": \"\",\n      \"priority\": \"\",\n      \"notification_type\": \"\"\n    },\n    \"content\": {\n      \"event_type\": \"\",\n      \"status\": \"\",\n      \"description\": \"\",\n      \"schedule\": {\n        \"planned_start\": \"\",\n        \"planned_end\": \"\",\n        \"actual_start\": \"\",\n        \"actual_end\": \"\"\n      },\n      \"location\": {\n        \"address\": \"\",\n        \"city\": \"\",\n        \"site\": \"\",\n        \"coordinates\": \"\"\n      },\n      \"affected_services\": [\n        {\n          \"service_id\": \"\",\n          \"service_type\": \"\",\n          \"impact_level\": \"\"\n        }\n      ],\n      \"work_details\": {\n        \"type\": \"\",\n        \"method\": \"\",\n        \"contractor\": \"\"\n      },\n      \"risks\": {\n        \"service_impact\": \"\",\n        \"redundancy_impact\": \"\",\n        \"downtime_probability\": \"\"\n      }\n    },\n    \"actions\": {\n      \"required\": \"\",\n      \"deadline\": \"\",\n      \"confirmation_needed\": \"\"\n    },\n    \"contacts\": {\n      \"primary\": {\n        \"department\": \"\",\n        \"phone\": \"\",\n        \"email\": \"\"\n      },\n      \"secondary\": []\n    },\n    \"references\": {\n      \"ticket_id\": \"\",\n      \"external_link\": \"\",\n      \"related_orders\": [],\n      \"attachments\": []\n    }\n  }\n},\n\n  shortTemplate: {\n  \"alert\": {\n    \"vendor\": \"\",    \n    \"title\": \"\",\n    \"message\": \"\",\n    \"priority\": \"\",\n    \"datetime\": \"\",\n    \"type\": \"\",\n    \"actions\": [],\n    \"ai_analysis\": {\n      \"risk_assessment\": {\n        \"service_impact\": 0,\n        \"redundancy_impact\": 0,\n        \"financial_risk\": 0\n      },\n      \"recommendations\": [],\n      \"key_notes\": []\n    }\n  }\n}\n};\n\n\nreturn msg;\n\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 800,
+    "y": 300,
+    "wires": [
+      [
+        "caa8e188b8676a7c"
+      ]
+    ]
+  },
+  {
+    "id": "441d3196dc26d572",
+    "type": "link out",
+    "z": "e9414db80e9d3b72",
+    "name": "Promt link out",
+    "mode": "link",
+    "links": [
+      "5717f6c718b3eb3c"
+    ],
+    "x": 615,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "9fa1ab349d9eac85",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "name": "Cond link in",
+    "links": [
+      "e294664249887f95"
+    ],
+    "x": 665,
+    "y": 300,
+    "wires": [
+      [
+        "89ca9ab839d308c8"
+      ]
+    ]
+  },
+  {
+    "id": "caa8e188b8676a7c",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Обработка  \\n письма",
+    "func": "function htmlToText(html) {\n    if (!html) return '';\n    \n    // Улучшенный парсер\n    return html\n        .replace(/<style[^>]*>.*?<\\/style>/gs, '')  // Удаляем стили\n        .replace(/<script[^>]*>.*?<\\/script>/gs, '') // Удаляем скрипты\n        .replace(/<br\\s*\\/?>/gi, '\\n')              // Переносы строк\n        .replace(/<\\/p>/gi, '\\n\\n')                 // Абзацы\n        .replace(/<[^>]+>/g, '')                    // Все остальные теги\n        .replace(/&nbsp;/g, ' ')                    // Спецсимволы\n        .replace(/\\s+/g, ' ')                       // Множественные пробелы\n        .trim();\n}\n\nmsg.email = {\n    from: msg.from || '',\n    subject: msg.topic || '(no subject)',\n    //html: msg.html || '',\n    body: htmlToText(msg.html)\n    //body: msg.html\n};\n\n\nif (!msg.email.body) {\n    node.warn(\"Empty email body after conversion\");\n    // Альтернатива: использовать текстовую версию, если есть\n    msg.email.body = msg.payload || \"[No content]\";\n}\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 990,
+    "y": 300,
+    "wires": [
+      [
+        "2e7b867008de0ab6"
+      ]
+    ]
+  },
+  {
+    "id": "2e7b867008de0ab6",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Подготовка  \\n промта",
+    "func": "delete msg.payload;\nmsg.payload = msg.payload || {};\nmsg.payload.messages = msg.payload.messages || {};\n\n// Получаем шаблоны из глобального контекста\nconst templates = context.global.templates;\n\n//node.warn(templates.promptTemplate); // Проверьте наличие шаблона\n//node.warn(msg.email.body); // Должен возвращать строку\n\n// Формируем финальный промт\nmsg.payload.messages = [\n    {role: \"system\", content: templates.promptTemplateSys}, \n    {role: \"user\", \n      content : templates.promptTemplate\n      .replace(\"{emailText}\", msg.email.subject + \" \" + msg.email.body)\n      .replace(\"{fullTemplate}\", JSON.stringify(templates.fullTemplate, null, 2))\n      .replace(\"{shortTemplate}\", JSON.stringify(templates.shortTemplate, null, 2))\n      //+ \"Ответ предоставь только в виде short Template\"\n      }\n    ,{role: \"assistant\", \n      content: templates.promptTemplateAssis\n      .replace(\"{promt_assist}\", msg.promt_assist)\n      }\n]\n\nmsg.promt_text_orig = msg.payload.messages[0].content + ' \\n ' + msg.payload.messages[1].content;\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1150,
+    "y": 300,
+    "wires": [
+      [
+        "ac50b4925271335e"
+      ]
+    ]
+  },
+  {
+    "id": "ac50b4925271335e",
+    "type": "link out",
+    "z": "e9414db80e9d3b72",
+    "name": "Promt link out 2",
+    "mode": "link",
+    "links": [
+      "5717f6c718b3eb3c"
+    ],
+    "x": 1255,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "7aaafde957cd3a2b",
+    "type": "switch",
+    "z": "e9414db80e9d3b72",
+    "name": "",
+    "property": "owlet_id_orig",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "nnull"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 590,
+    "y": 420,
+    "wires": [
+      [
+        "2d23f9b57349c44a"
+      ],
+      [
+        "1374383f047dca87"
+      ]
+    ]
+  },
+  {
+    "id": "2d23f9b57349c44a",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "Получаем teams_id",
+    "func": "const data = {\n    owlet_id: msg.owlet_id_orig || null,\n};\n\nmsg.topic = `\nselect teams_id\nfrom llm_interactions\nwhere owlet_id = CAST($owlet_id AS INTEGER)\n`; \n\nmsg.payload = [\n    data.owlet_id\n];\n\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 780,
+    "y": 400,
+    "wires": [
+      [
+        "90a4b24ac91d49f3"
+      ]
+    ]
+  },
+  {
+    "id": "90a4b24ac91d49f3",
+    "type": "sqlite",
+    "z": "e9414db80e9d3b72",
+    "mydb": "352f0cee1c53409e",
+    "sqlquery": "msg.topic",
+    "sql": "",
+    "name": "Owlet DB",
+    "x": 960,
+    "y": 400,
+    "wires": [
+      [
+        "d8b0bcbd18fb5bbf"
+      ]
+    ]
+  },
+  {
+    "id": "d8b0bcbd18fb5bbf",
+    "type": "function",
+    "z": "e9414db80e9d3b72",
+    "name": "get teams_id",
+    "func": "if (!msg.payload || !Array.isArray(msg.payload) || msg.payload.length === 0) {\n    //node.warn(\"Пустой payload или отсутствуют данные\");\n    msg.teams_id = null;\n} else if (!msg.payload[0].hasOwnProperty('teams_id')) {\n    //node.warn(\"Отсутствует свойство teams_id\");\n    msg.teams_id = null;\n} else {\n    msg.teams_id = msg.payload[0].teams_id;\n}\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1110,
+    "y": 400,
+    "wires": [
+      [
+        "1374383f047dca87"
+      ]
+    ]
+  },
+  {
+    "id": "665d743efe963071",
+    "type": "link in",
+    "z": "e9414db80e9d3b72",
+    "d": true,
+    "name": "link in 1",
+    "links": [],
+    "x": 575,
+    "y": 660,
+    "wires": [
+      [
+        "d07182d99f6c98e6"
+      ]
+    ]
+  },
+  {
+    "id": "8fa09b098abc9b26",
+    "type": "comment",
+    "z": "e9414db80e9d3b72",
+    "name": "Краткая документация",
+    "info": "// Заглушка для конкурса ИТМО",
+    "x": 120,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "12fd667669176e37",
+    "type": "Service Host",
+    "apiBase": "// Заглушка для конкурса ИТМО",
+    "secureApiKeyHeaderOrQueryName": "Bearer",
+    "organizationId": "",
+    "name": "// Заглушка для конкурса ИТМО"
+  },
+  {
+    "id": "9cf3f2a242cf6636",
+    "type": "http proxy",
+    "name": "",
+    "url": "// Заглушка для конкурса ИТМО",
+    "noproxy": [
+      "// Заглушка для конкурса ИТМО"
+    ]
+  },
+  {
+    "id": "352f0cee1c53409e",
+    "type": "sqlitedb",
+    "db": "/tmp/owletdb",
+    "mode": "RWC"
+  }
 ]
